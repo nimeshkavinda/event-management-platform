@@ -2,7 +2,7 @@
   <mdb-container fluid class="text-left">
     <mdb-row class="mx-5 mt-5">
       <mdb-col md="8">
-        <p class="h2 light-green-text font-weight-bold">
+        <p class="h3 light-green-text font-weight-bold">
           About
         </p>
         <p class="h1 font-weight-bold">
@@ -42,7 +42,7 @@
     <hr class="mx-5" />
     <mdb-row class="mx-5 my-5">
       <mdb-col md="5">
-        <p class="h7 light-green-text font-weight-bold">
+        <p class="h5 light-green-text font-weight-bold">
           Sub Communities
         </p>
         <p class="h3 font-weight-bold">
