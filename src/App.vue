@@ -50,12 +50,12 @@
     <mdb-footer color="#000000 black" class="pt-5 mt-4">
       <mdb-container fluid class="text-left mx-5">
         <mdb-row>
-          <mdb-col md="8">
+          <mdb-col lg="8">
             <div
               class="elfsight-app-b265f779-f292-4169-bac1-abf96439e699"
             ></div>
           </mdb-col>
-          <mdb-col md="4">
+          <mdb-col lg="4" class="pl-lg-5">
             <mdb-row>
               <mdb-col lg="2">
                 <img
