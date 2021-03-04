@@ -157,7 +157,7 @@
                     icon="arrow-right"
                     type="submit"
                     style="border-radius: 2em;"
-                    background-color="#BBD646"
+                    background-color="light-green"
                   ></mdb-btn>
                 </form>
               </mdb-col>
@@ -186,7 +186,7 @@
           </mdb-col>
         </mdb-row>
       </mdb-container>
-      <div class="footer-copyright text-center py-3" color="#EDEEF2">
+      <div class="footer-copyright text-center py-3">
         <mdb-container fluid>
           &copy; {{ new Date().getFullYear() }}
           <a href="https://fossnsbm.org"> FOSS Community NSBM</a>

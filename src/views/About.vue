@@ -69,7 +69,7 @@ export default {
     mdbRow,
     mdbCol,
     mdbView,
-    mdbMask,
+    mdbMask
   },
 };
 </script>
