@@ -5,6 +5,7 @@
         class="px-5 py-3"
         color="#ffffff white"
         light
+        position="top"
         style="box-shadow: none!important;"
       >
         <mdb-navbar-brand
