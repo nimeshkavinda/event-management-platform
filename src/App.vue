@@ -48,7 +48,7 @@
     <router-view />
 
     <mdb-footer color="#000000 black" class="pt-5 mt-4">
-      <mdb-container fluid class="text-left mx-5">
+      <mdb-container fluid class="text-left mx-4">
         <mdb-row>
           <mdb-col lg="8">
             <div
@@ -251,8 +251,9 @@ export default {
 }
 
 #nav a:hover {
-  text-decoration: underline;
-  text-underline-position: under;
+  color: black;
+  /* text-decoration: underline;
+  text-underline-position: under; */
 }
 
 </style>

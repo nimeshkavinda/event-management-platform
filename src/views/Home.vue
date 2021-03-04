@@ -4,14 +4,13 @@
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     
     <FeatureEventCard></FeatureEventCard>
-    <AboutPage></AboutPage>
+    <About></About>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
-
 import FeatureEventCard from '@/components/FeatureEventCard.vue'
 
 export default {
