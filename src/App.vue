@@ -3,11 +3,14 @@
     <div id="nav">
       <mdb-navbar
         class="px-5 py-3"
-        color="#fff"
+        color="#ffffff white"
         light
         style="box-shadow: none!important;"
       >
-        <mdb-navbar-brand href="https://fossnsbm.org/" style="margin-right: 190px;">
+        <mdb-navbar-brand
+          href="https://fossnsbm.org/"
+          style="margin-right: 190px;"
+        >
           <img
             src="https://firebasestorage.googleapis.com/v0/b/foss-rsvp.appspot.com/o/foss_nsbm2.png?alt=media&token=7d062d51-911f-4938-9c5c-73c0dee8c5ff"
             height="60"
@@ -25,10 +28,16 @@
             <mdb-nav-item href="#">Forum</mdb-nav-item>
           </mdb-navbar-nav>
           <mdb-btn-group style="width: 19em">
-            <mdb-btn color="transparent" style="box-shadow: none!important"
+            <mdb-btn
+              color="transparent"
+              class="font-weight-bold"
+              style="box-shadow: none!important"
               >Login</mdb-btn
             >
-            <mdb-btn color="primary" style="border-radius: 0.5em"
+            <mdb-btn
+              color="black"
+              class="font-weight-bold"
+              style="border-radius: 0.5em"
               >Sign Up</mdb-btn
             >
           </mdb-btn-group>
@@ -38,7 +47,7 @@
 
     <router-view />
 
-    <mdb-footer color="blue" class="pt-4 mt-4">
+    <mdb-footer color="#000000 black" class="pt-5 mt-4">
       <mdb-container fluid class="text-left mx-5">
         <mdb-row>
           <mdb-col md="8">
@@ -50,7 +59,7 @@
             <mdb-row>
               <mdb-col lg="2">
                 <img
-                  src="https://firebasestorage.googleapis.com/v0/b/foss-rsvp.appspot.com/o/foss_nsbm2.png?alt=media&token=7d062d51-911f-4938-9c5c-73c0dee8c5ff"
+                  src="https://firebasestorage.googleapis.com/v0/b/foss-rsvp.appspot.com/o/foss_nsbm2-2.png?alt=media&token=9855d48f-94ff-4d24-8181-ba97ae981d10"
                   height="80"
                   alt=""
                 />
@@ -73,7 +82,7 @@
                 <a
                   href="https://www.facebook.com/foss.nsbm"
                   role="button"
-                  style="color: black; margin-right: 1em;"
+                  style="margin-right: 1em;"
                 >
                   <i class="fab fa-facebook-f fa-lg"></i>
                 </a>
@@ -81,7 +90,7 @@
                 <a
                   href="https://twitter.com/fossnsbm"
                   role="button"
-                  style="color: black; margin-right: 1em;"
+                  style="margin-right: 1em;"
                 >
                   <i class="fab fa-twitter fa-lg"></i>
                 </a>
@@ -89,7 +98,7 @@
                 <a
                   href="https://www.instagram.com/fossnsbm"
                   role="button"
-                  style="color: black; margin-right: 1em;"
+                  style="margin-right: 1em;"
                 >
                   <i class="fab fa-instagram fa-lg"></i>
                 </a>
@@ -97,7 +106,7 @@
                 <a
                   href="https://www.linkedin.com/in/fossnsbm"
                   role="button"
-                  style="color: black; margin-right: 1em;"
+                  style="margin-right: 1em;"
                 >
                   <i class="fab fa-linkedin fa-lg"></i>
                 </a>
@@ -105,7 +114,7 @@
                 <a
                   href="https://github.com/fossnsbm"
                   role="button"
-                  style="color: black; margin-right: 1em;"
+                  style="margin-right: 1em;"
                 >
                   <i class="fab fa-github fa-lg"></i>
                 </a>
@@ -129,29 +138,34 @@
               </mdb-col>
             </mdb-row>
             <mdb-row>
-              <mdb-col md="12" class="mt-3">
+              <mdb-col md="8" class="mt-3">
                 <h7 class="font-weight-bold">
                   Wants to be up to date? <br />Get our newsletter delivered to
                   your email every month
                 </h7>
               </mdb-col>
             </mdb-row>
-            <mdb-row class="mt-4">
+            <mdb-row class="mt-3">
               <mdb-col md="12">
-                <div class="form-group">
-                  <mdb-row>
-                    <mdb-col sm="10">
-                      <input
-                        type="email"
-                        class="form-control"
-                        placeholder="Email address"
-                      />
-                    </mdb-col>
-                    <mdb-col sm="2">
-                      <mdb-btn></mdb-btn>
-                    </mdb-col>
-                  </mdb-row>
-                </div>
+                <form class="form-inline">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Email address"
+                  />
+                  <mdb-btn
+                    icon="arrow-right"
+                    type="submit"
+                    style="border-radius: 2em;"
+                    background-color="#BBD646"
+                  ></mdb-btn>
+                </form>
+              </mdb-col>
+            </mdb-row>
+            <mdb-row>
+              <mdb-col md="4" class="mt-3">
+                <h7 class="font-weight-bold mr-1"> Go to Top </h7
+                ><a href="#" role="button"><i class="fas fa-angle-up"></i></a>
               </mdb-col>
             </mdb-row>
           </mdb-col>
@@ -207,20 +221,19 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  background-color: #fff;
-}
-
-#nav {
-  /* padding: 30px; */
 }
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #707070;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: black;
+}
+
+#nav a:hover {
+  text-decoration: underline;
+  text-underline-position: under;
 }
 </style>
