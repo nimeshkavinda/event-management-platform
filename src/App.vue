@@ -165,7 +165,16 @@
             <mdb-row>
               <mdb-col md="4" class="mt-3">
                 <h7 class="font-weight-bold mr-1"> Go to Top </h7
-                ><a href="#" role="button"><i class="fas fa-angle-up"></i></a>
+                ><a href="#" role="button"
+                  ><go-top-button
+                    :animate="true"
+                    :speed="10"
+                    :acceleration="2"
+                    :scrollDistance="300"
+                    :classNames="'custom-class'"
+                  >
+                    <i class="fa fa-arrow-up"></i> </go-top-button
+                ></a>
               </mdb-col>
             </mdb-row>
           </mdb-col>
@@ -195,6 +204,7 @@ import {
   mdbRow,
   mdbCol,
 } from "mdbvue";
+import "vue-go-top-button/dist/lib/vue-go-top-button.min.css";
 export default {
   name: "IndexPage",
   components: {
