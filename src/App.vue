@@ -48,7 +48,7 @@
     <router-view />
 
     <mdb-footer color="#000000 black" class="pt-5 mt-4">
-      <mdb-container fluid class="text-left mx-5">
+      <mdb-container fluid class="text-left mx-4">
         <mdb-row>
           <mdb-col lg="8">
             <div
@@ -157,7 +157,7 @@
                     icon="arrow-right"
                     type="submit"
                     style="border-radius: 2em;"
-                    background-color="#BBD646"
+                    background-color="light-green"
                   ></mdb-btn>
                 </form>
               </mdb-col>
@@ -165,24 +165,30 @@
             <mdb-row>
               <mdb-col md="4" class="mt-3">
                 <h7 class="font-weight-bold mr-1"> Go to Top </h7
-                ><a href="#" role="button"
-                  ><go-top-button
-                    :animate="true"
-                    :speed="10"
-                    :acceleration="2"
-                    :scrollDistance="300"
-                    :classNames="'custom-class'"
-                  >
-                    <i class="fa fa-arrow-up"></i> </go-top-button
-                ></a>
+                ><go-top-button
+                  :animate="true"
+                  :speed="50"
+                  :acceleration="2"
+                  :scrollDistance="300"
+                  :classNames="'custom-class'"
+                  :styles="{
+                    'border-radius': '20px 20px 20px 20px',
+                    right: '5px',
+                    color: 'black',
+                    border: '5px solid',
+                    'line-height': '20px',
+                  }"
+                >
+                  <i class="fa fa-arrow-up"></i>
+                </go-top-button>
               </mdb-col>
             </mdb-row>
           </mdb-col>
         </mdb-row>
       </mdb-container>
-      <div class="footer-copyright text-center py-3" color="#EDEEF2">
+      <div class="footer-copyright text-center py-3">
         <mdb-container fluid>
-          &copy; 2021
+          &copy; {{ new Date().getFullYear() }}
           <a href="https://fossnsbm.org"> FOSS Community NSBM</a>
         </mdb-container>
       </div>
@@ -204,6 +210,7 @@ import {
   mdbRow,
   mdbCol,
 } from "mdbvue";
+import GoTopButton from "vue-go-top-button";
 import "vue-go-top-button/dist/lib/vue-go-top-button.min.css";
 export default {
   name: "IndexPage",
@@ -219,6 +226,7 @@ export default {
     mdbContainer,
     mdbRow,
     mdbCol,
+    GoTopButton,
   },
 };
 </script>
@@ -243,7 +251,9 @@ export default {
 }
 
 #nav a:hover {
-  text-decoration: underline;
-  text-underline-position: under;
+  color: black;
+  /* text-decoration: underline;
+  text-underline-position: under; */
 }
+
 </style>
