@@ -24,8 +24,8 @@
               ><router-link to="/about">About</router-link></mdb-nav-item
             >
             <mdb-nav-item href="#">Events</mdb-nav-item>
-            <mdb-nav-item href="#">Blog</mdb-nav-item>
-            <mdb-nav-item href="#">Forum</mdb-nav-item>
+            <mdb-nav-item href="https://fossnsbm.org/">Blog</mdb-nav-item>
+            <mdb-nav-item href="https://forum.fossnsbm.org/">Forum</mdb-nav-item>
           </mdb-navbar-nav>
           <mdb-btn-group style="width: 19em">
             <mdb-btn
