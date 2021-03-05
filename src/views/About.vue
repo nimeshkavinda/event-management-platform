@@ -49,7 +49,7 @@
           FOSS Community of NSBM is home to international and local communities
         </p>
       </mdb-col>
-      <mdb-col md="7" class="mt-4">
+      <mdb-col md="7" class="mt-3">
         <img
           src="https://firebasestorage.googleapis.com/v0/b/foss-rsvp.appspot.com/o/newlogostripfoss-01.png?alt=media&token=12117df4-7eeb-4bac-92d4-2518ee112370"
           width="100%"
