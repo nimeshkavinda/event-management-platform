@@ -33,13 +33,13 @@
               color="transparent"
               class="font-weight-bold"
               style="box-shadow: none!important"
-              >Login</mdb-btn
+              ><router-link to="/login">Login</router-link></mdb-btn
             >
             <mdb-btn
               color="black"
               class="font-weight-bold"
               style="border-radius: 0.5em"
-              >Sign Up</mdb-btn
+              ><router-link to="/sign">Sign Up</router-link></mdb-btn
             >
           </mdb-btn-group>
         </mdb-navbar-toggler>
