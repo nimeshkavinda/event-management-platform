@@ -26,7 +26,9 @@
             >
             <mdb-nav-item href="#">Events</mdb-nav-item>
             <mdb-nav-item href="https://fossnsbm.org/">Blog</mdb-nav-item>
-            <mdb-nav-item href="https://forum.fossnsbm.org/">Forum</mdb-nav-item>
+            <mdb-nav-item href="https://forum.fossnsbm.org/"
+              >Forum</mdb-nav-item
+            >
           </mdb-navbar-nav>
           <mdb-btn-group style="width: 19em">
             <mdb-btn
@@ -65,7 +67,7 @@
                   alt=""
                 />
               </mdb-col>
-              <mdb-col lg="10" class="mt-4">
+              <mdb-col lg="10" class="mt-4 pl-lg-4">
                 <h4 class="font-weight-bold">FOSS Community</h4>
               </mdb-col>
             </mdb-row>
@@ -122,19 +124,25 @@
               </mdb-col>
               <mdb-col md="12">
                 <mdb-row class="mt-3">
-                  <mdb-navbar-nav nav class="font-weight-bold">
-                    <mdb-nav-item
-                      ><router-link to="/">Home</router-link></mdb-nav-item
-                    >
-                    <mdb-nav-item
-                      ><router-link to="/about"
-                        >About</router-link
-                      ></mdb-nav-item
-                    >
-                    <mdb-nav-item href="#">Events</mdb-nav-item>
-                    <mdb-nav-item href="#">Blog</mdb-nav-item>
-                    <mdb-nav-item href="#">Forum</mdb-nav-item>
-                  </mdb-navbar-nav>
+                  <div id="nav-footer">
+                    <mdb-navbar-nav nav class="font-weight-bold">
+                      <mdb-nav-item
+                        ><router-link to="/">Home</router-link></mdb-nav-item
+                      >
+                      <mdb-nav-item
+                        ><router-link to="/about"
+                          >About</router-link
+                        ></mdb-nav-item
+                      >
+                      <mdb-nav-item href="#">Events</mdb-nav-item>
+                      <mdb-nav-item href="https://fossnsbm.org/"
+                        >Blog</mdb-nav-item
+                      >
+                      <mdb-nav-item href="https://forum.fossnsbm.org/"
+                        >Forum</mdb-nav-item
+                      >
+                    </mdb-navbar-nav>
+                  </div>
                 </mdb-row>
               </mdb-col>
             </mdb-row>
@@ -154,12 +162,13 @@
                     class="form-control"
                     placeholder="Email address"
                   />
-                  <mdb-btn
-                    icon="arrow-right"
+                  <button
                     type="submit"
-                    style="border-radius: 2em;"
-                    background-color="light-green"
-                  ></mdb-btn>
+                    style="border-radius: 1.5em;"
+                    class="btn light-green"
+                  >
+                    <i class="fas fa-arrow-right" style="color: black;"></i>
+                  </button>
                 </form>
               </mdb-col>
             </mdb-row>
@@ -257,4 +266,18 @@ export default {
   text-underline-position: under; */
 }
 
+#nav-footer a {
+  font-weight: bold;
+  color: #fff;
+}
+
+#nav-footer a.router-link-exact-active {
+  color: #e7e7e7;
+}
+
+#nav-footer a:hover {
+  color: #e7e7e7;
+  /* text-decoration: underline;
+  text-underline-position: under; */
+}
 </style>

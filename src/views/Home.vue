@@ -12,12 +12,13 @@
           <p class="h2">
             A truly Open Source Community dedicated to Open Source Enthusiasts
           </p>
-          <mdb-btn
-            icon="arrow-right"
+          <button
             type="submit"
-            style="border-radius: 2em;"
-            background-color="light-green"
-          ></mdb-btn>
+            style="border-radius: 1.5em;"
+            class="btn light-green"
+          >
+            <i class="fas fa-arrow-right" style="color: black;"></i>
+          </button>
         </mdb-col>
         <mdb-col md="4" class="mb-5">
           <p class="h5 mb-4 ml-4 light-green-text font-weight-bold">
@@ -45,7 +46,9 @@
                 >Thursday, February 25, 2021 6:00 PM to 3:00 AM
                 GMT+5:30</mdb-card-title
               >
-              <mdb-btn color="primary">RSVP</mdb-btn>
+              <mdb-btn color="light-green" style="border-radius:1em;"
+                >RSVP</mdb-btn
+              >
             </mdb-card-body>
           </mdb-card>
         </mdb-col>
@@ -53,12 +56,8 @@
           <p class="h5 mb-4 ml-4 light-green-text font-weight-bold">
             Recent Articles
           </p>
-          <mdb-row>
-
-          </mdb-row>
-          <mdb-row>
-
-          </mdb-row>
+          <mdb-row> </mdb-row>
+          <mdb-row> </mdb-row>
         </mdb-col>
       </mdb-row>
     </mdb-container>
