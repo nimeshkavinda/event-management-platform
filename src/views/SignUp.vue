@@ -1,9 +1,9 @@
 <template>
-  <mdb-container fluid class="text-left" >
-    <mdb-row class="mx-5 mb-5 pb-5 d-flex align-items-center" style="height:70vh;" >
+  <mdb-container fluid class="text-left">
+    <mdb-row class="mx-5 mb-5 pb-5 d-flex align-items-center" style="height:70vh;">
       <mdb-col lg="8" class="mb-4">
         <p class="h1 font-weight-bold">
-          Sign in to<br />Our Latest<br />Event Management Platform
+          Become a member to<br />get all the benefits of<br />FOSS Event Platform
         </p>
         <mdb-row>
           <mdb-col col="1" class="mr-md-5">
@@ -16,7 +16,7 @@
           </mdb-col>
           <mdb-col col="5">
             <p class="font-weight-normal">
-              Register here if you don't<br />have an account yet
+              Login here if you are <br />already a member
             </p>
           </mdb-col>
         </mdb-row>
@@ -26,9 +26,26 @@
         <!-- Default form login -->
         <form>
           <div class="form-group">
-           <mdb-input type="email" label="Email address" bg size="lg" style="box-shadow: 5px 10px 20px #e0e0e0;"/>
+            <input
+              type="email"
+              class="form-control mb-3"
+              placeholder="Your e-mail"
+              style="box-shadow: 5px 10px 20px #e0e0e0;"
+            />
 
-            <mdb-input type="password" label="Your password" bg size="lg" style="box-shadow: 5px 10px 20px #e0e0e0;"/>
+            <input 
+              type="password"
+              class="form-control mb-3"
+              placeholder="Your password"
+              style="box-shadow: 5px 10px 20px #e0e0e0;"
+            />
+
+            <input 
+              type="password"
+              class="form-control"
+              placeholder="Confirm password"
+              style="box-shadow: 5px 10px 20px #e0e0e0;"
+            />
           </div>
 
           <p class="text-right">Foget my password</p>
@@ -55,23 +72,22 @@
           </mdb-row>
         </form>
         <!-- Default form login -->
-      
       </mdb-col>
     </mdb-row>
   </mdb-container>
 </template>
 
 <script>
-import { mdbContainer, mdbRow, mdbCol, mdbBtn, mdbIcon,mdbInput } from "mdbvue";
+import { mdbContainer, mdbRow, mdbCol, mdbBtn, mdbIcon } from "mdbvue";
 export default {
-  name: "Login",
+  name: "SignUp",
   components: {
     mdbContainer,
     mdbRow,
     mdbCol,
     mdbBtn,
     mdbIcon,
-    mdbInput
+    
   },
 };
 </script>
@@ -97,5 +113,4 @@ export default {
 .separator:not(:empty)::after {
   margin-left: .25em;
 }
-
 </style>
