@@ -1,6 +1,6 @@
 <template>
   <mdb-row class="mb-4">
-    <mdb-stretched-link :to="post.url">
+    <mdb-stretched-link :href="post.url">
       <mdb-card style="box-shadow: none!important;">
         <mdb-row>
           <mdb-col col="6">
