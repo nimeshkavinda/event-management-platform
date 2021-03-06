@@ -262,8 +262,6 @@ export default {
 
 #nav a:hover {
   color: black;
-  /* text-decoration: underline;
-  text-underline-position: under; */
 }
 
 #nav-footer a {
@@ -277,7 +275,5 @@ export default {
 
 #nav-footer a:hover {
   color: #e7e7e7;
-  /* text-decoration: underline;
-  text-underline-position: under; */
 }
 </style>
