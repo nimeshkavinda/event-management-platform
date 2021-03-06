@@ -23,7 +23,7 @@
         </mdb-col>
         <mdb-col lg="4" class="mb-5">
           <p class="h5 mb-4 ml-4 light-green-text font-weight-bold">
-            Feature Event
+            Featured Event
           </p>
           <mdb-card style="border-radius: 0.5em;">
             <mdb-card-body class="p-4">
