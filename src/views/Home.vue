@@ -87,6 +87,7 @@ import {
   mdbCardText,
 } from "mdbvue";
 import AboutPage from "@/views/About.vue";
+// import FeatureEventCard from "../components/FeatureEventCard.vue";
 import ArticleCard from "../components/ArticleCard.vue";
 export default {
   name: "Home",
@@ -101,6 +102,7 @@ export default {
     mdbCardTitle,
     mdbCardText,
     ArticleCard,
+    // FeatureEventCard
   },
   data() {
     return {
