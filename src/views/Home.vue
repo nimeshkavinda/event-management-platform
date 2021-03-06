@@ -23,7 +23,7 @@
         </mdb-col>
         <mdb-col lg="4" class="mb-5">
           <p class="h5 mb-4 ml-4 light-green-text font-weight-bold">
-            Feature Event
+            Featured Event
           </p>
           <mdb-card style="border-radius: 0.5em;">
             <mdb-card-body class="p-4">
@@ -62,11 +62,10 @@
               v-for="post in posts"
               :key="post.id"
               :post="post"
-            ></ArticleCard>
-            <a href="https://fossnsbm.org/" class="font-weight-bold"
-              >Explore More</a
-            >
-          </mdb-col>
+            ></ArticleCard> </mdb-col
+          ><a href="https://fossnsbm.org/" class="ml-lg-2 font-weight-bold"
+            >Explore More</a
+          >
         </mdb-col>
       </mdb-row>
     </mdb-container>
@@ -87,6 +86,7 @@ import {
   mdbCardText,
 } from "mdbvue";
 import AboutPage from "@/views/About.vue";
+// import FeatureEventCard from "../components/FeatureEventCard.vue";
 import ArticleCard from "../components/ArticleCard.vue";
 export default {
   name: "Home",
@@ -101,6 +101,7 @@ export default {
     mdbCardTitle,
     mdbCardText,
     ArticleCard,
+    // FeatureEventCard
   },
   data() {
     return {

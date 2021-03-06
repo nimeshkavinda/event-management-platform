@@ -294,4 +294,8 @@ export default {
   color: #fff;
 }
 
+#navbtn a.router-link-exact-active {
+  color: #fff;
+}
+
 </style>
