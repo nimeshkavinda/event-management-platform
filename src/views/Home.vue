@@ -2,7 +2,7 @@
   <div class="home">
     <mdb-container fluid class="text-left">
       <mdb-row class="mx-5 my-5">
-        <mdb-col md="4" class="my-lg-5 py-lg-5 my-5">
+        <mdb-col lg="4" class="my-lg-5 py-lg-5 my-5">
           <p class="h3 light-green-text font-weight-bold">
             We are
           </p>
@@ -12,19 +12,21 @@
           <p class="h2">
             A truly Open Source Community dedicated to Open Source Enthusiasts
           </p>
-          <mdb-btn
-            icon="arrow-right"
-            type="submit"
-            style="border-radius: 2em;"
-            background-color="light-green"
-          ></mdb-btn>
+          <router-link to="/about">
+            <button
+              type="button"
+              style="border-radius: 1.5em;"
+              class="btn light-green"
+            >
+              <i class="fas fa-arrow-right" style="color: black;"></i></button
+          ></router-link>
         </mdb-col>
-        <mdb-col md="4" class="mb-5">
+        <mdb-col lg="4" class="mb-5">
           <p class="h5 mb-4 ml-4 light-green-text font-weight-bold">
             Feature Event
           </p>
           <mdb-card style="border-radius: 0.5em;">
-            <mdb-card-body>
+            <mdb-card-body class="p-4">
               <mdb-card-title class="h1 font-weight-bold"
                 >Hash Code</mdb-card-title
               >
@@ -45,20 +47,24 @@
                 >Thursday, February 25, 2021 6:00 PM to 3:00 AM
                 GMT+5:30</mdb-card-title
               >
-              <mdb-btn color="primary">RSVP</mdb-btn>
+              <mdb-btn color="light-green" style="border-radius:1em;"
+                >RSVP</mdb-btn
+              >
             </mdb-card-body>
           </mdb-card>
         </mdb-col>
-        <mdb-col md="4" class="mb-5">
+        <mdb-col lg="4" class="mb-5">
           <p class="h5 mb-4 ml-4 light-green-text font-weight-bold">
             Recent Articles
           </p>
-          <mdb-row>
-
-          </mdb-row>
-          <mdb-row>
-
-          </mdb-row>
+          <ArticleCard
+            v-for="post in posts"
+            :key="post.id"
+            :post="post"
+          ></ArticleCard>
+          <a href="https://fossnsbm.org/" class="font-weight-bold"
+            >Explore More</a
+          >
         </mdb-col>
       </mdb-row>
     </mdb-container>
@@ -79,7 +85,7 @@ import {
   mdbCardText,
 } from "mdbvue";
 import AboutPage from "@/views/About.vue";
-
+import ArticleCard from "../components/ArticleCard.vue";
 export default {
   name: "Home",
   components: {
@@ -92,6 +98,20 @@ export default {
     mdbCardBody,
     mdbCardTitle,
     mdbCardText,
+    ArticleCard,
+  },
+  data() {
+    return {
+      posts: [],
+    };
+  },
+  mounted() {
+    fetch(
+      'https://fossnsbm.org/ghost/api/v3/content/posts/?key=aa4e816c161110084f7ada42ad&include=authors&limit=2&order=published_at%20desc'
+    )
+      .then((res) => res.json())
+      .then((data) => (this.posts = data.posts))
+      .catch((err) => console.log(err.message));
   },
 };
 </script>
