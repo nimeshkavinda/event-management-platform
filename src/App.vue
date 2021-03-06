@@ -40,7 +40,8 @@
             <mdb-btn
               color="black"
               class="font-weight-bold"
-              style="border-radius: 0.5em"
+              style="border-radius: 0.5em;"
+              id="navbtn"
               ><router-link to="/signup">Sign Up</router-link></mdb-btn
             >
           </mdb-btn-group>
@@ -283,6 +284,14 @@ export default {
 
 #nav-footer a:hover {
   color: #e7e7e7;
+}
+
+#navbtn a {
+  color: #fff;
+}
+
+#navbtn a:hover {
+  color: #fff;
 }
 
 </style>
