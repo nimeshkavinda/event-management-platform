@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import { component } from 'vue/types/umd'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import SignUp from '../views/SignUp.vue'
+import Error from '../views/Error.vue'
 
 
 Vue.use(VueRouter)
@@ -31,6 +33,10 @@ const routes = [
     name: 'SignUp',
     component:SignUp
   },
+  {
+    path:'*',
+    component:Error,
+  }
  
 
 ]
