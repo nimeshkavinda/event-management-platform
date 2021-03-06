@@ -26,13 +26,12 @@
         />
       </div>
       <div class="form-group">
-        <p class="text-right">Forgot password</p>
         <button
           type="submit"
           style="border-radius: 1em;"
           class="w-100 font-weight-bold btn light-green"
         >
-          Sign In
+          Sign Up
         </button>
       </div>
     </form>

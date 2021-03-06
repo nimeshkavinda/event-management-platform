@@ -62,11 +62,10 @@
               v-for="post in posts"
               :key="post.id"
               :post="post"
-            ></ArticleCard>
-            <a href="https://fossnsbm.org/" class="font-weight-bold"
-              >Explore More</a
-            >
-          </mdb-col>
+            ></ArticleCard> </mdb-col
+          ><a href="https://fossnsbm.org/" class="ml-lg-2 font-weight-bold"
+            >Explore More</a
+          >
         </mdb-col>
       </mdb-row>
     </mdb-container>

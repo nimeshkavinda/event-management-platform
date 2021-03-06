@@ -1,7 +1,7 @@
 <template>
   <mdb-row class="mb-4">
-    <mdb-stretched-link :href="post.url" class="black-text">
-      <mdb-card style="box-shadow: none!important;">
+    <mdb-card style="box-shadow: none!important;">
+      <mdb-stretched-link :href="post.url" class="black-text">
         <mdb-row>
           <mdb-col col="6">
             <img
@@ -37,8 +37,8 @@
             </div>
           </mdb-col>
         </mdb-row>
-      </mdb-card>
-    </mdb-stretched-link>
+      </mdb-stretched-link>
+    </mdb-card>
   </mdb-row>
 </template>
 
@@ -51,7 +51,7 @@ export default {
     mdbRow,
     mdbCol,
     mdbCard,
-    mdbStretchedLink
+    mdbStretchedLink,
   },
 };
 </script>

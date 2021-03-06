@@ -28,40 +28,16 @@
       </mdb-col>
 
       <mdb-col lg="4" class="px-5">
-        <form>
-          <div class="form-group">
-            <mdb-input
-              type="email"
-              label="Email address"
-              bg
-              size="lg"
-              style="box-shadow: 5px 10px 20px #e0e0e0;"
-            />
-
-            <mdb-input
-              type="password"
-              label="Your password"
-              bg
-              size="lg"
-              style="box-shadow: 5px 10px 20px #e0e0e0;"
-            />
-          </div>
-
-          <p class="text-right">Foget my password</p>
-          <div class="text-center mt-4 mr-3">
-            <mdb-btn color="success" class="w-100" style="border-radius: 0.8em;"
-              >Sign In</mdb-btn
-            >
-          </div>
-          <SocialLogin></SocialLogin>
-        </form>
+        <LoginForm></LoginForm>
+        <SocialLogin></SocialLogin>
       </mdb-col>
     </mdb-row>
   </mdb-container>
 </template>
 
 <script>
-import { mdbContainer, mdbRow, mdbCol, mdbBtn, mdbInput } from "mdbvue";
+import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
+import LoginForm from "../components/LoginForm";
 import SocialLogin from "../components/SocialLogin.vue";
 export default {
   name: "Login",
@@ -69,8 +45,7 @@ export default {
     mdbContainer,
     mdbRow,
     mdbCol,
-    mdbInput,
-    mdbBtn,
+    LoginForm,
     SocialLogin,
   },
 };
