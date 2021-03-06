@@ -57,14 +57,16 @@
           <p class="h5 mb-4 ml-4 light-green-text font-weight-bold">
             Recent Articles
           </p>
-          <ArticleCard
-            v-for="post in posts"
-            :key="post.id"
-            :post="post"
-          ></ArticleCard>
-          <a href="https://fossnsbm.org/" class="font-weight-bold"
-            >Explore More</a
-          >
+          <mdb-col col="12" class="ml-lg-2">
+            <ArticleCard
+              v-for="post in posts"
+              :key="post.id"
+              :post="post"
+            ></ArticleCard>
+            <a href="https://fossnsbm.org/" class="font-weight-bold"
+              >Explore More</a
+            >
+          </mdb-col>
         </mdb-col>
       </mdb-row>
     </mdb-container>
@@ -107,7 +109,7 @@ export default {
   },
   mounted() {
     fetch(
-      'https://fossnsbm.org/ghost/api/v3/content/posts/?key=aa4e816c161110084f7ada42ad&include=authors&limit=2&order=published_at%20desc'
+      "https://fossnsbm.org/ghost/api/v3/content/posts/?key=aa4e816c161110084f7ada42ad&include=authors&limit=2&order=published_at%20desc"
     )
       .then((res) => res.json())
       .then((data) => (this.posts = data.posts))
