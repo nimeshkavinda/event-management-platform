@@ -35,13 +35,13 @@
               color="transparent"
               class="font-weight-bold"
               style="box-shadow: none!important"
-              >Login</mdb-btn
+              ><router-link to="/login">Login</router-link></mdb-btn
             >
             <mdb-btn
               color="black"
               class="font-weight-bold"
               style="border-radius: 0.5em"
-              >Sign Up</mdb-btn
+              ><router-link to="/signup">Sign Up</router-link></mdb-btn
             >
           </mdb-btn-group>
         </mdb-navbar-toggler>
@@ -54,9 +54,17 @@
       <mdb-container fluid class="text-left mx-4">
         <mdb-row>
           <mdb-col lg="8">
-            <div
+            <!-- <div
               class="elfsight-app-b265f779-f292-4169-bac1-abf96439e699"
-            ></div>
+            ></div> -->
+            <iframe
+              allowfullscreen
+              id="wallsio-iframe"
+              src="https://my.walls.io/d4cm3?nobackground=1&amp;show_header=0&amp;initial_posts=5&amp;columns=3"
+              style="border:0;height:480px;width:100%"
+              loading="lazy"
+              title="My social wall"
+            ></iframe>
           </mdb-col>
           <mdb-col lg="4" class="pl-lg-5">
             <mdb-row>
@@ -280,4 +288,5 @@ export default {
   /* text-decoration: underline;
   text-underline-position: under; */
 }
+
 </style>
