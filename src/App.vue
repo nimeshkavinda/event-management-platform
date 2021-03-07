@@ -24,8 +24,12 @@
             <mdb-nav-item
               ><router-link to="/about">About</router-link></mdb-nav-item
             >
-            <mdb-nav-item href="#">Events</mdb-nav-item>
-            <mdb-nav-item href="https://fossnsbm.org/">Blog</mdb-nav-item>
+            <mdb-nav-item
+              ><router-link to="/events">Events</router-link></mdb-nav-item
+            >
+            <mdb-nav-item
+              ><router-link to="/blog">Blog</router-link></mdb-nav-item
+            >
             <mdb-nav-item href="https://forum.fossnsbm.org/"
               >Forum</mdb-nav-item
             >
@@ -143,9 +147,16 @@
                           >About</router-link
                         ></mdb-nav-item
                       >
-                      <mdb-nav-item href="#">Events</mdb-nav-item>
-                      <mdb-nav-item href="https://fossnsbm.org/"
-                        >Blog</mdb-nav-item
+                      <mdb-nav-item
+                        ><router-link to="/events"
+                          >Events</router-link
+                        ></mdb-nav-item
+                      >
+
+                      <mdb-nav-item
+                        ><router-link to="/blog"
+                          >Blog</router-link
+                        ></mdb-nav-item
                       >
                       <mdb-nav-item href="https://forum.fossnsbm.org/"
                         >Forum</mdb-nav-item
@@ -297,5 +308,4 @@ export default {
 #navbtn a.router-link-exact-active {
   color: #fff;
 }
-
 </style>
