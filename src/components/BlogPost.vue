@@ -2,20 +2,16 @@
   <div class="blog-item">
     <mdb-stretched-link :href="blogPost.url" class="black-text">
       <mdb-card style="border-radius: 0.6em;">
-        <mdb-view hover>
-          <mdb-card-image
-            :src="blogPost.feature_image"
-            alt="Blog post"
-            style="border-radius: 0.6em;"
-          />
-          <mdb-mask flex-center waves overlay="white-slight"></mdb-mask>
-        </mdb-view>
+        <img
+          :src="blogPost.feature_image"
+          alt="Blog post"
+          width="100%"
+          height="220px"
+          style="border-top-left-radius: 0.6em; border-top-right-radius: 0.6em; object-fit: cover;"
+        />
+        <mdb-mask flex-center waves overlay="white-slight"></mdb-mask>
         <mdb-card-body>
-          <mdb-card-title>{{ blogPost.title }}</mdb-card-title>
-          <mdb-card-text
-            >Some quick example text to build on the card title and make up the
-            bulk of the card's content.</mdb-card-text
-          >
+          <mdb-card-title class="h5 font-weight-bold">{{ blogPost.title }}</mdb-card-title>
           <mdb-row class="d-flex justify-content-center">
             <mdb-col col="1">
               <img
@@ -27,7 +23,7 @@
                 loading="lazy"
               />
             </mdb-col>
-            <mdb-col col="10">
+            <mdb-col col="7">
               <p class="card-text">
                 {{ blogPost.primary_author.name }}
               </p>
@@ -44,11 +40,8 @@ import {
   mdbRow,
   mdbCol,
   mdbCard,
-  mdbCardImage,
   mdbCardBody,
   mdbCardTitle,
-  mdbCardText,
-  mdbView,
   mdbMask,
   mdbStretchedLink,
 } from "mdbvue";
@@ -59,11 +52,8 @@ export default {
     mdbRow,
     mdbCol,
     mdbCard,
-    mdbCardImage,
     mdbCardBody,
     mdbCardTitle,
-    mdbCardText,
-    mdbView,
     mdbMask,
     mdbStretchedLink,
   },

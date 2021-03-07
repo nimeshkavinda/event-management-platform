@@ -20,16 +20,16 @@
             <img
               :src="featuredPost.primary_author.profile_image"
               class="rounded-circle"
-              height="36"
-              width="36"
+              height="28"
+              width="28"
               alt=""
               loading="lazy"
             />
           </mdb-col>
           <mdb-col col="9" class="pl-2 pt-1">
-            <h5 class="card-text">
+            <h6 class="card-text">
               {{ featuredPost.primary_author.name }}
-            </h5>
+            </h6>
           </mdb-col>
         </mdb-row>
       </div></mdb-stretched-link
