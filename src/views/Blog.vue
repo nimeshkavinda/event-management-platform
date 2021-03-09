@@ -65,7 +65,7 @@ export default {
   },
   mounted() {
     fetch(
-      "https://fossnsbm.org/ghost/api/v3/content/posts/?key=aa4e816c161110084f7ada42ad&include=authors&order=published_at%20desc"
+      "https://fossnsbm.org/ghost/api/v3/content/posts/?key=aa4e816c161110084f7ada42ad&include=authors&order=published_at%20desc&limit=all"
     )
       .then((res) => res.json())
       .then((data) => (this.articles = data.posts))

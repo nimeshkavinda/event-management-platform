@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
+import { mdbContainer, mdbRow, mdbCol, mdbView } from "mdbvue";
 export default {
   name: "BlogArticle",
   props: ["blogArticle"],
@@ -51,6 +51,7 @@ export default {
     mdbContainer,
     mdbRow,
     mdbCol,
+    mdbView
   },
 };
 </script>
