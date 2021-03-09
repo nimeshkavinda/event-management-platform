@@ -34,7 +34,7 @@
               >Forum</mdb-nav-item
             >
           </mdb-navbar-nav>
-          <mdb-btn-group style="width: 19em">
+          <mdb-btn-group style="width: 20em">
             <mdb-btn
               color="transparent"
               class="font-weight-bold"
@@ -168,10 +168,10 @@
             </mdb-row>
             <mdb-row>
               <mdb-col md="8" class="mt-3">
-                <h7 class="font-weight-bold">
+                <h6 class="font-weight-bold">
                   Wants to be up to date? <br />Get our newsletter delivered to
                   your email every month
-                </h7>
+                </h6>
               </mdb-col>
             </mdb-row>
             <mdb-row class="mt-3">
@@ -194,7 +194,7 @@
             </mdb-row>
             <mdb-row>
               <mdb-col md="4" class="mt-3">
-                <h7 class="font-weight-bold mr-1"> Go to Top </h7
+                <h6 class="font-weight-bold mr-1"> Go to Top </h6
                 ><go-top-button
                   :animate="true"
                   :speed="50"

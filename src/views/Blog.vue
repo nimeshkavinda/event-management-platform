@@ -7,8 +7,8 @@
             Blog
           </p>
           <p class="h1 font-weight-bold">
-            FOSS Community NSBM Blog is the platform to raise awareness about
-            Open Sources
+            FOSS Community NSBM Blog is a platform to raise awareness about Open
+            Source
           </p>
         </mdb-col>
       </mdb-row>

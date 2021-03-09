@@ -1,7 +1,7 @@
 <template>
   <mdb-row class="mb-4">
     <mdb-card style="box-shadow: none!important;">
-      <mdb-stretched-link :href="post.url" class="black-text">
+      <router-link :to="'/blog/' + post.id" class="black-text">
         <mdb-row>
           <mdb-col col="6">
             <img
@@ -37,13 +37,13 @@
             </div>
           </mdb-col>
         </mdb-row>
-      </mdb-stretched-link>
+      </router-link>
     </mdb-card>
   </mdb-row>
 </template>
 
 <script>
-import { mdbRow, mdbCol, mdbCard, mdbStretchedLink } from "mdbvue";
+import { mdbRow, mdbCol, mdbCard } from "mdbvue";
 export default {
   name: "ArticleCard",
   props: ["post"],
@@ -51,7 +51,6 @@ export default {
     mdbRow,
     mdbCol,
     mdbCard,
-    mdbStretchedLink,
   },
 };
 </script>

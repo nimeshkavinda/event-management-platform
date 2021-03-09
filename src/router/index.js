@@ -1,10 +1,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import NotFoundPage from "../views/NotFound.vue";
 import Login from "../views/Login.vue";
 import SignUp from "../views/SignUp.vue";
 import Profile from "../views/Profile.vue";
 import Events from "../views/Events.vue";
+import ArticlePage from "../views/Article.vue";
+import Blog from "../views/Blog.vue"
 
 Vue.use(VueRouter);
 
@@ -13,6 +16,10 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "*",
+    component: NotFoundPage,
   },
   {
     path: "/about",
@@ -26,7 +33,12 @@ const routes = [
   {
     path: "/blog",
     name: "Blog",
-    component: () => import("../views/Blog.vue"),
+    component: Blog,
+  },
+  {
+    path: "/blog/:id",
+    name: "ArticlePage",
+    component: ArticlePage,
   },
   {
     path: "/login",

@@ -63,8 +63,8 @@
               :key="post.id"
               :post="post"
             ></ArticleCard> </mdb-col
-          ><a href="https://fossnsbm.org/" class="ml-lg-2 font-weight-bold"
-            >Explore More</a
+          ><router-link to="/blog" class="ml-lg-2 font-weight-bold"
+            >Explore More</router-link
           >
         </mdb-col>
       </mdb-row>
