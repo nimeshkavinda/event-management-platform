@@ -36,7 +36,7 @@
     </mdb-row>
     <mdb-row class="mx-5 my-5">
       <mdb-container
-        class="h5 font-weight-normal"
+        class="h5 font-weight-normal overflow-hidden"
         v-html="blogArticle.html"
       ></mdb-container>
     </mdb-row>
