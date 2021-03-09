@@ -3,12 +3,12 @@
     <mdb-row class="mx-5 mt-5">
       <mdb-col md="8">
         <mdb-row>
-          <mdb-col col="1">
+          <mdb-col lg="1" md="2" class="mb-3">
             <img
               :src="blogArticle.primary_author.profile_image"
               class="rounded-circle"
-              height="32"
-              width="32"
+              height="36"
+              width="36"
               alt=""
               loading="lazy"
             />
@@ -30,13 +30,13 @@
         class="zoom overlay"
         :src="blogArticle.feature_image"
         alt="Thumb"
-        style="border-radius: 1.5em;"
+        style="border-radius: 1.5em; object-fit: cover;"
       >
       </mdb-view>
     </mdb-row>
     <mdb-row class="mx-5 my-5">
-      <mdb-col md="12" class="font-weight-normal">
-        {{ blogArticle.html }}
+      <mdb-col md="12" class="h5 font-weight-normal">
+        <mdb-container v-html="blogArticle.html"></mdb-container>
       </mdb-col>
     </mdb-row>
   </mdb-container>
@@ -51,7 +51,7 @@ export default {
     mdbContainer,
     mdbRow,
     mdbCol,
-    mdbView
+    mdbView,
   },
 };
 </script>
