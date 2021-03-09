@@ -1,12 +1,13 @@
 <template>
   <div>
-    <BlogArticle></BlogArticle>
+    <BlogArticle :key="article.id" :blogArticle="article"></BlogArticle>
   </div>
 </template>
 
 <script>
 import {} from "mdbvue";
 import BlogArticle from "../components/BlogArticle.vue";
+import GhostContentAPI from '@tryghost/content-api'
 export default {
   name: "ArticlePage",
   components: { BlogArticle },
@@ -15,16 +16,23 @@ export default {
       article: [],
     };
   },
+  methods: {
+    async getPostData() {
+      const api = new GhostContentAPI({
+        url: "https://fossnsbm.org",
+        key: "aa4e816c161110084f7ada42ad",
+        version: "v3",
+      });
+
+      api.posts.read({ id: this.$route.params.id, include: "authors" }).then((posts) => {
+        this.article = posts;
+        console.log(posts)
+        console.log(posts.feature_image)
+      });
+    },
+  },
   mounted() {
-    fetch(
-      "https://fossnsbm.org/ghost/api/v3/content/posts/" +
-        this.$route.params.id +
-        "/?key=aa4e816c161110084f7ada42ad&include=authors/"
-    )
-      .then((res) => res.json())
-      .then((data) => (this.article = data.posts))
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err.message));
+    this.getPostData();
   },
 };
 </script>
