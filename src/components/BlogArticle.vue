@@ -35,9 +35,10 @@
       </mdb-view>
     </mdb-row>
     <mdb-row class="mx-5 my-5">
-      <mdb-col md="12" class="h5 font-weight-normal">
-        <mdb-container v-html="blogArticle.html"></mdb-container>
-      </mdb-col>
+      <mdb-container
+        class="h5 font-weight-normal"
+        v-html="blogArticle.html"
+      ></mdb-container>
     </mdb-row>
   </mdb-container>
 </template>
