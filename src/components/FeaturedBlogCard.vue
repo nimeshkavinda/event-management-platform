@@ -1,6 +1,6 @@
 <template>
   <div class="card bg-dark text-white">
-    <mdb-stretched-link :href="featuredPost.url" class="white-text">
+    <router-link :to="'/blog/' + featuredPost.id" class="white-text">
       <mdb-view class="rounded">
         <img
           :src="featuredPost.feature_image"
@@ -32,16 +32,16 @@
             </h6>
           </mdb-col>
         </mdb-row>
-      </div></mdb-stretched-link
+      </div></router-link
     >
   </div>
 </template>
 
 <script>
-import { mdbRow, mdbView, mdbMask, mdbStretchedLink } from "mdbvue";
+import { mdbRow, mdbCol, mdbView, mdbMask } from "mdbvue";
 export default {
   name: "FeaturedBlogCard",
   props: ["featuredPost"],
-  components: { mdbRow, mdbView, mdbMask, mdbStretchedLink },
+  components: { mdbRow, mdbCol, mdbView, mdbMask },
 };
 </script>

@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import NotFoundPage from "../views/NotFound.vue";
 import Login from "../views/Login.vue";
 import SignUp from "../views/SignUp.vue";
 import Profile from "../views/Profile.vue";
@@ -15,6 +16,10 @@ const routes = [
     component: Home,
   },
   {
+    path: "*",
+    component: NotFoundPage,
+  },
+  {
     path: "/about",
     name: "About",
     // route level code-splitting
@@ -27,6 +32,11 @@ const routes = [
     path: "/blog",
     name: "Blog",
     component: () => import("../views/Blog.vue"),
+  },
+  {
+    path: "/blog/:id",
+    name: "BlogArticle",
+    component: () => import("../views/BlogArticle.vue"),
   },
   {
     path: "/login",

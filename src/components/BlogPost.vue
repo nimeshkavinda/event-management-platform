@@ -1,6 +1,6 @@
 <template>
   <div class="blog-item">
-    <mdb-stretched-link :href="blogPost.url" class="black-text">
+    <router-link :to="'/blog/' + blogPost.id" class="black-text">
       <mdb-card style="border-radius: 0.6em;">
         <img
           :src="blogPost.feature_image"
@@ -11,7 +11,9 @@
         />
         <mdb-mask flex-center waves overlay="white-slight"></mdb-mask>
         <mdb-card-body>
-          <mdb-card-title class="h5 font-weight-bold">{{ blogPost.title }}</mdb-card-title>
+          <mdb-card-title class="h5 font-weight-bold">{{
+            blogPost.title
+          }}</mdb-card-title>
           <mdb-row class="d-flex justify-content-center">
             <mdb-col col="1">
               <img
@@ -31,7 +33,7 @@
           </mdb-row>
         </mdb-card-body>
       </mdb-card>
-    </mdb-stretched-link>
+    </router-link>
   </div>
 </template>
 
@@ -43,7 +45,6 @@ import {
   mdbCardBody,
   mdbCardTitle,
   mdbMask,
-  mdbStretchedLink,
 } from "mdbvue";
 export default {
   name: "CardPage",
@@ -55,7 +56,6 @@ export default {
     mdbCardBody,
     mdbCardTitle,
     mdbMask,
-    mdbStretchedLink,
   },
 };
 </script>
