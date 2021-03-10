@@ -1,116 +1,52 @@
 <template>
   <mdb-container fluid class="text-left">
-    <mdb-row class="mx-5 mb-5 pb-5 d-flex align-items-center" style="height:70vh;">
+    <mdb-row
+      class="mx-5 mb-5 pb-5 d-flex align-items-center"
+      style="height:70vh;"
+    >
       <mdb-col lg="8" class="mb-4">
         <p class="h1 font-weight-bold">
-          Become a member to<br />get all the benefits of<br />FOSS Event Platform
+          Become a member to<br />get all the benefits of<br />FOSS Event
+          Management Platform
         </p>
         <mdb-row>
-          <mdb-col col="1" class="mr-md-5">
-            <mdb-btn
-              icon="arrow-right"
-              type="submit"
-              style="border-radius: 2em;"
-              background-color="light-green"
-            ></mdb-btn>
+          <mdb-col lg="1" class="mr-md-4"
+            ><router-link to="/login">
+              <button
+                type="button"
+                style="border-radius: 1.5em;"
+                class="btn light-green mr-md-4"
+              >
+                <i class="fas fa-arrow-right" style="color: black;"></i></button
+            ></router-link>
           </mdb-col>
-          <mdb-col col="5">
+          <mdb-col lg="5" class="mt-md-1">
             <p class="font-weight-normal">
-              Login here if you are <br />already a member
+              Login here if you are<br />already a member
             </p>
           </mdb-col>
         </mdb-row>
       </mdb-col>
-
       <mdb-col lg="4" class="px-5">
-        <!-- Default form login -->
-        <form>
-          <div class="form-group">
-            <input
-              type="email"
-              class="form-control mb-3"
-              placeholder="Your e-mail"
-              style="box-shadow: 5px 10px 20px #e0e0e0;"
-            />
-
-            <input 
-              type="password"
-              class="form-control mb-3"
-              placeholder="Your password"
-              style="box-shadow: 5px 10px 20px #e0e0e0;"
-            />
-
-            <input 
-              type="password"
-              class="form-control"
-              placeholder="Confirm password"
-              style="box-shadow: 5px 10px 20px #e0e0e0;"
-            />
-          </div>
-
-          <p class="text-right">Foget my password</p>
-          <div class="text-center mt-4 mr-3">
-            <mdb-btn color="success" class="w-100" style="border-radius: 0.8em;"
-              >Sign In</mdb-btn
-            >
-          </div>
-
-          <mdb-row>
-              <mdb-col col="12" class="my-4">
-                  <div class="separator">Or continue with</div>
-
-              </mdb-col>
-          </mdb-row>
-
-          <mdb-row>
-            <mdb-col class="d-flex justify-content-center">
-              <mdb-icon fab icon="google" size="2x" class="mr-3" />
-              <mdb-icon fab icon="facebook-f" size="2x" class="mr-3" />
-              <mdb-icon fab icon="twitter" size="2x" class="mr-3" />
-              <mdb-icon fab icon="github" size="2x" class="mr-3" />
-            </mdb-col>
-          </mdb-row>
-        </form>
-        <!-- Default form login -->
+        <SignUpForm></SignUpForm>
+        <SocialLogin></SocialLogin>
       </mdb-col>
     </mdb-row>
   </mdb-container>
 </template>
 
 <script>
-import { mdbContainer, mdbRow, mdbCol, mdbBtn, mdbIcon } from "mdbvue";
+import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
+import SignUpForm from "../components/SignUpForm.vue";
+import SocialLogin from "../components/SocialLogin.vue";
 export default {
   name: "SignUp",
   components: {
     mdbContainer,
     mdbRow,
     mdbCol,
-    mdbBtn,
-    mdbIcon,
-    
+    SocialLogin,
+    SignUpForm,
   },
 };
 </script>
-
-<style>
-.separator {
-  display: flex;
-  align-items: center;
-  text-align: center;
-}
-
-.separator::before,
-.separator::after {
-  content: '';
-  flex: 1;
-  border-bottom: 1px solid #000;
-}
-
-.separator:not(:empty)::before {
-  margin-right: .25em;
-}
-
-.separator:not(:empty)::after {
-  margin-left: .25em;
-}
-</style>

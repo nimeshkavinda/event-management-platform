@@ -1,0 +1,57 @@
+<template>
+  <mdb-container class="text-left">
+    <mdb-row class="mx-5 mt-5">
+      <mdb-col md="8">
+        <mdb-row>
+          <mdb-col col="1">
+            <img
+              :src="blogArticle.primary_author.profile_image"
+              class="rounded-circle"
+              height="32"
+              width="32"
+              alt=""
+              loading="lazy"
+            />
+          </mdb-col>
+          <mdb-col col="10">
+            <p class="h3 light-green-text font-weight-bold">
+              {{ blogArticle.primary_author.name }}
+            </p>
+          </mdb-col>
+        </mdb-row>
+        <p class="h1 font-weight-bold">
+          {{ blogArticle.title }}
+        </p>
+      </mdb-col>
+    </mdb-row>
+    <hr class="mx-5" />
+    <mdb-row class="mx-4 my-4 font-weight-bold">
+      <mdb-view
+        class="zoom overlay"
+        :src="blogArticle.feature_image"
+        alt="Thumb"
+        style="border-radius: 1.5em;"
+      >
+      </mdb-view>
+    </mdb-row>
+    <mdb-row class="mx-5 my-5">
+      <mdb-col md="12" class="font-weight-normal">
+        {{ blogArticle.html }}
+      </mdb-col>
+    </mdb-row>
+  </mdb-container>
+</template>
+
+<script>
+import { mdbContainer, mdbRow, mdbCol, mdbView } from "mdbvue";
+export default {
+  name: "BlogArticle",
+  props: ["blogArticle"],
+  components: {
+    mdbContainer,
+    mdbRow,
+    mdbCol,
+    mdbView
+  },
+};
+</script>
