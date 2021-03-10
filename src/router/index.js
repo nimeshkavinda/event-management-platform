@@ -8,13 +8,6 @@ import Profile from "../views/Profile.vue";
 import Events from "../views/Events.vue";
 import ArticlePage from "../views/Article.vue";
 import Blog from "../views/Blog.vue"
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import { component } from 'vue/types/umd'
-import Home from '../views/Home.vue'
-import Login from '../views/Login.vue'
-import SignUp from '../views/SignUp.vue'
-import Error from '../views/Error.vue'
 
 Vue.use(VueRouter);
 
@@ -68,12 +61,7 @@ const routes = [
     component: Events,
   },
 ];
-    path:'*',
-    component:Error,
-  }
- 
-
-]
+    
 
 const router = new VueRouter({
   scrollBehavior() {
