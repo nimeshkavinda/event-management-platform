@@ -12,6 +12,7 @@
     "@tryghost/content-api": "^1.5.0",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "firebase": "^8.3.0",
     "mdbvue": "6.7.2",
     "tailwindcss": "^2.0.3",
     "vue": "^2.6.11",

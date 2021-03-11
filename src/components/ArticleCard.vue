@@ -26,6 +26,7 @@
                     width="22"
                     alt=""
                     loading="lazy"
+                    style="object-fit: cover;"
                   />
                 </mdb-col>
                 <mdb-col col="10">
