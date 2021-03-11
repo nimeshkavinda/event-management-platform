@@ -16,7 +16,7 @@
           </h1>
         </mdb-row>
         <mdb-row>
-          <mdb-col col="3" class="pl-3">
+          <mdb-col col="2" class="pl-3">
             <img
               :src="featuredPost.primary_author.profile_image"
               class="rounded-circle"
@@ -24,9 +24,10 @@
               width="28"
               alt=""
               loading="lazy"
+              style="object-fit: cover;"
             />
           </mdb-col>
-          <mdb-col col="9" class="pl-2 pt-1">
+          <mdb-col col="10" class="pl-2 pt-1">
             <h6 class="card-text">
               {{ featuredPost.primary_author.name }}
             </h6>
