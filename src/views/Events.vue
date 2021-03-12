@@ -19,15 +19,7 @@
         <p class="h5 blue-text font-weight-bold mt-2">
           Upcomming Events
         </p>
-        <mdb-card>
-          <mdb-card-body>
-            <mdb-card-title>
-              <mdb-card-text>
-                <h1>huerirhirgr</h1>
-              </mdb-card-text>
-            </mdb-card-title>
-          </mdb-card-body>
-        </mdb-card>
+       <EventsCard></EventsCard>
 
       </mdb-col>
       
@@ -63,7 +55,8 @@
 </template>
 
 <script>
-import { mdbContainer, mdbRow, mdbCol, mdbIcon,mdbStretchedLink,mdbCard,mdbCardBody,mdbCardTitle,mdbCardText } from "mdbvue";
+import { mdbContainer, mdbRow, mdbCol, mdbIcon,mdbStretchedLink} from "mdbvue";
+import EventsCard from "../components/EventsCard.vue";
 export default {
   name: "Events",
   components: {
@@ -71,13 +64,8 @@ export default {
     mdbRow,
     mdbCol,
     mdbIcon,
-    mdbStretchedLink,
-    mdbCard,
-    mdbCardBody,
-    mdbCardTitle,
-    mdbCardText
-    
-    
+    mdbStretchedLink, 
+    EventsCard
   },
 };
 </script>
