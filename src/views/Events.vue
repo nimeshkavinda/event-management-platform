@@ -12,19 +12,19 @@
           </p>
           <p class="h5">
             Having doubts? Please contact
-            <a href="info@fossnsbm.org">info@fossnsbm.org</a>
+            <a href="mailto:info@fossnsbm.org">info@fossnsbm.org</a>
           </p></mdb-col
         ></mdb-row
       >
       <mdb-row class="mx-5 mt-5">
-        <mdb-col md="5"
+        <mdb-col md="12"
           ><p class="h3 light-green-text font-weight-bold">
             Upcoming Events
           </p></mdb-col
         ></mdb-row
       >
       <mdb-row class="mx-5 mt-5">
-        <mdb-col md="5"
+        <mdb-col md="10"
           ><p class="h3 light-green-text font-weight-bold">
             Past Events
           </p></mdb-col
@@ -44,6 +44,7 @@
 
 <script>
 import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
+// import EventCard from "../components/EventCard.vue";
 import FaqAccordion from "../components/Faq.vue";
 export default {
   name: "EventsPage",
@@ -52,6 +53,7 @@ export default {
     mdbRow,
     mdbCol,
     FaqAccordion,
+    // EventCard,
   },
 };
 </script>
