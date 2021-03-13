@@ -8,6 +8,7 @@ import Profile from "../views/Profile.vue";
 import Events from "../views/Events.vue";
 import ArticlePage from "../views/Article.vue";
 import Blog from "../views/Blog.vue"
+import EventPage from "../views/Event.vue";
 
 Vue.use(VueRouter);
 
@@ -59,6 +60,11 @@ const routes = [
     path: "/events",
     name: "Events",
     component: Events,
+  },
+  {
+    path: "/events/e",
+    name: "EventPage",
+    component: EventPage,
   },
 ];
 

@@ -48,7 +48,7 @@
                 GMT+5:30</mdb-card-title
               >
               <mdb-btn color="light-green" style="border-radius:1em;"
-                >RSVP</mdb-btn
+                >Attend</mdb-btn
               >
             </mdb-card-body>
           </mdb-card>

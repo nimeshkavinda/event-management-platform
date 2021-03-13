@@ -9,7 +9,7 @@
       <mdb-card-title class="h4 font-weight-bold"
         >{{ featureEvent.date }} {{ featureEvent.time }}</mdb-card-title
       >
-      <mdb-btn :to="featureEvent.url" color="light-green" style="border-radius:1em;">RSVP</mdb-btn>
+      <mdb-btn :to="featureEvent.url" color="light-green" style="border-radius:1em;">Attend</mdb-btn>
     </mdb-card-body>
   </mdb-card>
 </template>

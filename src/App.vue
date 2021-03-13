@@ -196,7 +196,7 @@
               </mdb-col>
             </mdb-row>
             <mdb-row class="mt-3">
-              <mdb-col lg="3">
+              <mdb-col lg="2">
                 <h6 class="font-weight-bold mr-1">Go to Top</h6>
               </mdb-col>
               <mdb-col lg="1">
