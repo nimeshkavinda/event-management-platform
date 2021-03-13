@@ -45,7 +45,7 @@
             ><router-link to="/signup">
               <mdb-btn
                 color="black"
-                class="font-weight-bold"
+                class="font-weight-bold white-text"
                 style="border-radius: 0.5em;"
                 id="navbtn"
                 >Sign Up</mdb-btn
