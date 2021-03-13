@@ -10,7 +10,8 @@
       <mdb-col class="d-flex justify-content-center">
         <mdb-icon fab icon="google" size="2x" class="mr-4" />
         <mdb-icon fab icon="facebook-f" size="2x" class="mr-4" />
-        <mdb-icon fab icon="twitter" size="2x" />
+        <mdb-icon fab icon="twitter" size="2x" class="mr-4" />
+        <mdb-icon fab icon="github" size="2x" />
       </mdb-col>
     </mdb-row>
   </div>

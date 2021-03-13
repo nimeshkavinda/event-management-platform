@@ -192,10 +192,10 @@
                 </form>
               </mdb-col>
             </mdb-row>
-            <mdb-row>
-              <mdb-col md="4" class="mt-3">
-                <h6 class="font-weight-bold mr-1"> Go to Top </h6
-                ><go-top-button
+            <mdb-row class="mt-3">
+              <mdb-col lg="4">
+                <h6 class="font-weight-bold mr-1">Go to Top</h6>
+                <go-top-button
                   :animate="true"
                   :speed="50"
                   :acceleration="2"
