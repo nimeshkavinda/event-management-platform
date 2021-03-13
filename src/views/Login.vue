@@ -26,7 +26,6 @@
           </mdb-col>
         </mdb-row>
       </mdb-col>
-
       <mdb-col lg="4" class="px-5">
         <LoginForm></LoginForm>
         <SocialLogin></SocialLogin>

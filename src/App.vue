@@ -196,20 +196,17 @@
               </mdb-col>
             </mdb-row>
             <mdb-row class="mt-3">
-              <mdb-col lg="4">
+              <mdb-col lg="3">
                 <h6 class="font-weight-bold mr-1">Go to Top</h6>
+              </mdb-col>
+              <mdb-col lg="1">
                 <go-top-button
                   :animate="true"
                   :speed="50"
                   :acceleration="2"
                   :scrollDistance="300"
-                  :classNames="'custom-class'"
                   :styles="{
-                    'border-radius': '20px 20px 20px 20px',
-                    right: '5px',
-                    color: 'black',
-                    border: '5px solid',
-                    'line-height': '20px',
+                    color: 'white',
                   }"
                 >
                   <i class="fa fa-arrow-up"></i>
@@ -244,7 +241,6 @@ import {
   mdbCol,
 } from "mdbvue";
 import GoTopButton from "vue-go-top-button";
-import "vue-go-top-button/dist/lib/vue-go-top-button.min.css";
 export default {
   name: "IndexPage",
   components: {
