@@ -26,8 +26,6 @@ export default {
 
       api.posts.read({ id: this.$route.params.id, include: "authors" }).then((posts) => {
         this.article = posts;
-        console.log(posts)
-        console.log(posts.feature_image)
       });
     },
   },

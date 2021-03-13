@@ -23,7 +23,7 @@
           flex-center
           pattern="3"
           text="Meet FOSS Community NSBM"
-          style="font-size: 72px;"
+          style="font-size:5vw;"
         />
       </mdb-view>
     </mdb-row>
