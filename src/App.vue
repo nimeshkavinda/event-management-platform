@@ -34,19 +34,22 @@
               >Forum</mdb-nav-item
             >
           </mdb-navbar-nav>
-          <mdb-btn-group style="width: 20em">
-            <mdb-btn
-              color="transparent"
-              class="font-weight-bold"
-              style="box-shadow: none!important"
-              ><router-link to="/login">Login</router-link></mdb-btn
-            >
-            <mdb-btn
-              color="black"
-              class="font-weight-bold"
-              style="border-radius: 0.5em;"
-              id="navbtn"
-              ><router-link to="/signup">Sign Up</router-link></mdb-btn
+          <mdb-btn-group style="width: 20em"
+            ><router-link to="/login">
+              <mdb-btn
+                color="transparent"
+                class="font-weight-bold"
+                style="box-shadow: none!important"
+                >Login</mdb-btn
+              ></router-link
+            ><router-link to="/signup">
+              <mdb-btn
+                color="black"
+                class="font-weight-bold"
+                style="border-radius: 0.5em;"
+                id="navbtn"
+                >Sign Up</mdb-btn
+              ></router-link
             >
           </mdb-btn-group>
         </mdb-navbar-toggler>
@@ -192,10 +195,10 @@
                 </form>
               </mdb-col>
             </mdb-row>
-            <mdb-row>
-              <mdb-col md="4" class="mt-3">
-                <h6 class="font-weight-bold mr-1"> Go to Top </h6
-                ><go-top-button
+            <mdb-row class="mt-3">
+              <mdb-col lg="4">
+                <h6 class="font-weight-bold mr-1">Go to Top</h6>
+                <go-top-button
                   :animate="true"
                   :speed="50"
                   :acceleration="2"

@@ -9,7 +9,7 @@
       <mdb-card-title class="h4 font-weight-bold"
         >{{ event.date }} {{ event.time }}</mdb-card-title
       >
-      <mdb-btn :to="event.url" color="light-green" style="border-radius:1em;">RSVP</mdb-btn>
+      <mdb-btn :to="event.url" color="light-green" style="border-radius:1em;">More</mdb-btn>
     </mdb-card-body>
   </mdb-card>
 </template>
@@ -17,8 +17,8 @@
 <script>
 import { mdbCard, mdbCardTitle, mdbCardText, mdbCardBody } from "mdbvue";
 export default {
-  name: "FeatureEventCard",
-  props: ["featureEvent"],
+  name: "EventCard",
+  props: ["event"],
   components: {
     mdbCard,
     mdbCardTitle,
