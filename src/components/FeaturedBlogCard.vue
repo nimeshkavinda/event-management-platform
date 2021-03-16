@@ -5,8 +5,7 @@
         <img
           :src="featuredPost.feature_image"
           class="card-img"
-          width="100%"
-          style="object-fit: cover;"
+          style="object-fit: cover; width: 100%;"
           alt="featured article"/><mdb-mask flex-center overlay="black-strong"
       /></mdb-view>
       <div class="card-img-overlay d-flex align-items-start flex-column">

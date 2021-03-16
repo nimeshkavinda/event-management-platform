@@ -25,33 +25,11 @@
           <p class="h5 mb-4 ml-4 light-green-text font-weight-bold">
             Featured Event
           </p>
-          <mdb-card style="border-radius: 0.5em;">
-            <mdb-card-body class="p-4">
-              <mdb-card-title class="h1 font-weight-bold"
-                >Hash Code</mdb-card-title
-              >
-              <mdb-card-text class="h1 mb-5"
-                >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est
-                laborum.</mdb-card-text
-              >
-              <mdb-card-text class="h1 blue-text"
-                >FOC B1, NSBM Green University</mdb-card-text
-              >
-              <mdb-card-title class="h4 font-weight-bold"
-                >Thursday, February 25, 2021 6:00 PM to 3:00 AM
-                GMT+5:30</mdb-card-title
-              >
-              <mdb-btn color="light-green" style="border-radius:1em;"
-                >RSVP</mdb-btn
-              >
-            </mdb-card-body>
-          </mdb-card>
+          <FeaturedEventCard
+            v-for="event in events"
+            :key="event.id"
+            :featuredEvent="event"
+          ></FeaturedEventCard>
         </mdb-col>
         <mdb-col lg="4" class="mb-5">
           <p class="h5 mb-4 ml-4 light-green-text font-weight-bold">
@@ -75,18 +53,10 @@
 
 <script>
 // @ is an alias to /src
-import {
-  mdbContainer,
-  mdbRow,
-  mdbCol,
-  mdbBtn,
-  mdbCard,
-  mdbCardBody,
-  mdbCardTitle,
-  mdbCardText,
-} from "mdbvue";
+import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
 import AboutPage from "@/views/About.vue";
-// import FeatureEventCard from "../components/FeatureEventCard.vue";
+import axios from "axios";
+import FeaturedEventCard from "../components/FeaturedEventCard.vue";
 import ArticleCard from "../components/ArticleCard.vue";
 export default {
   name: "Home",
@@ -95,26 +65,41 @@ export default {
     mdbContainer,
     mdbRow,
     mdbCol,
-    mdbBtn,
-    mdbCard,
-    mdbCardBody,
-    mdbCardTitle,
-    mdbCardText,
     ArticleCard,
-    // FeatureEventCard
+    FeaturedEventCard,
   },
   data() {
     return {
       posts: [],
+      events: [],
     };
   },
-  mounted() {
-    fetch(
-      "https://fossnsbm.org/ghost/api/v3/content/posts/?key=aa4e816c161110084f7ada42ad&include=authors&limit=2&order=published_at%20desc"
-    )
-      .then((res) => res.json())
-      .then((data) => (this.posts = data.posts))
-      .catch((err) => console.log(err.message));
+  created() {
+    this.getFeaturedEvent();
+    this.getArticles();
+  },
+  // async created() {
+  //   const result = await axios.get("/api/upcomingevents");
+  //   const event = result.data;
+  //   this.events = event;
+  // },
+  methods: {
+    getFeaturedEvent: function() {
+      axios
+        .get("/api/events")
+        .then((response) => (this.events = response.data))
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
+    getArticles: function() {
+      fetch(
+        "https://fossnsbm.org/ghost/api/v3/content/posts/?key=aa4e816c161110084f7ada42ad&include=authors&limit=2&order=published_at%20desc"
+      )
+        .then((res) => res.json())
+        .then((data) => (this.posts = data.posts))
+        .catch((err) => console.log(err.message));
+    },
   },
 };
 </script>

@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import { component } from 'vue/types/umd';
 import Home from "../views/Home.vue";
 import NotFoundPage from "../views/NotFound.vue";
 import Login from "../views/Login.vue";
@@ -8,13 +9,7 @@ import Profile from "../views/Profile.vue";
 import Events from "../views/Events.vue";
 import ArticlePage from "../views/Article.vue";
 import Blog from "../views/Blog.vue"
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import { component } from 'vue/types/umd'
-import Home from '../views/Home.vue'
-import Login from '../views/Login.vue'
-import SignUp from '../views/SignUp.vue'
-import Error from '../views/Error.vue'
+import EventPage from "../views/Event.vue";
 
 Vue.use(VueRouter);
 
@@ -66,6 +61,11 @@ const routes = [
     path: "/events",
     name: "Events",
     component: Events,
+  },
+  {
+    path: "/events/e",
+    name: "EventPage",
+    component: EventPage,
   },
 ];
     path:'*',

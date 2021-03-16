@@ -18,7 +18,7 @@
         />
       </div>
       <div class="form-group">
-        <a herf="#"><p class="text-right">Forgot password</p></a>
+        <a href="#"><p class="text-right font-weight-normal">Forgot password</p></a>
         <button
           type="submit"
           style="border-radius: 1em;"
