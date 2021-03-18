@@ -62,7 +62,7 @@
                   <router-link to="/profile">Profile</router-link>
                 </mdb-dropdown-item>
                 <mdb-dropdown-item
-                  ><a role="button" @click="$emit('logout')"
+                  ><a role="button" @click="this.logout"
                     >Log out</a
                   ></mdb-dropdown-item
                 >
