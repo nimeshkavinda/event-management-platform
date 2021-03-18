@@ -1,12 +1,16 @@
 <template>
   <div>
-    <form>
+    <form @submit.prevent="login">
       <div class="form-group">
+        <mdb-alert color="danger" v-if="error">
+          {{this.error}}
+        </mdb-alert>
         <input
           type="email"
           class="form-control"
           placeholder="Email address"
           required
+          v-model="email"
         />
       </div>
       <div class="form-group">
@@ -15,10 +19,13 @@
           class="form-control"
           placeholder="Password"
           required
+          v-model="password"
         />
       </div>
       <div class="form-group">
-        <a href="#"><p class="text-right font-weight-normal">Forgot password</p></a>
+        <a href="#"
+          ><p class="text-right font-weight-normal">Forgot password</p></a
+        >
         <button
           type="submit"
           style="border-radius: 1em;"
@@ -32,9 +39,36 @@
 </template>
 
 <script>
-import {} from "mdbvue";
+import Firebase from "firebase";
+import { mdbAlert } from "mdbvue";
 export default {
   name: "LoginForm",
-  components: {},
+  components: { mdbAlert },
+  data() {
+    return {
+      email: "",
+      password: "",
+      error: "",
+    };
+  },
+  methods: {
+    login() {
+      const info = {
+        email: this.email,
+        password: this.password,
+      };
+
+      Firebase.auth()
+        .signInWithEmailAndPassword(info.email, info.password)
+        .then(
+          () => {
+            this.$router.push("/");
+          },
+          (error) => {
+            this.error = error.message;
+          }
+        );
+    },
+  },
 };
 </script>

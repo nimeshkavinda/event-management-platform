@@ -1,12 +1,16 @@
 <template>
   <div>
-    <form>
+    <form @submit.prevent="signup">
+      <mdb-alert color="danger" v-if="error">
+        {{ this.error }}
+      </mdb-alert>
       <div class="form-group">
         <input
           type="email"
           class="form-control"
           placeholder="Email address"
           required
+          v-model="email"
         />
       </div>
       <div class="form-group">
@@ -15,6 +19,7 @@
           class="form-control"
           placeholder="Password"
           required
+          v-model="password"
         />
       </div>
       <div class="form-group">
@@ -23,6 +28,7 @@
           class="form-control"
           placeholder="Confirm password"
           required
+          v-model="conPassword"
         />
       </div>
       <div class="form-group">
@@ -39,9 +45,54 @@
 </template>
 
 <script>
-import {} from "mdbvue";
+import { mdbAlert } from "mdbvue";
+import Firebase from "firebase";
 export default {
   name: "SignUpForm",
-  components: {},
+  components: { mdbAlert },
+  data() {
+    return {
+      // name: null,
+      email: null,
+      conPassword: null,
+      error: null,
+    };
+  },
+  watch: {
+    conPassword() {
+      if (
+        this.password !== "" &&
+        this.conPassword !== "" &&
+        this.conPassword !== this.password
+      ) {
+        this.error = "Passwords do not match";
+      } else {
+        this.error = null;
+      }
+    },
+  },
+  methods: {
+    signup() {
+      const info = {
+        email: this.email,
+        password: this.password,
+        // name: this.name,
+      };
+      if (!this.error) {
+        Firebase.auth()
+          .createUserWithEmailAndPassword(this.email, this.password)
+          .then(
+            (userCredentials) => {
+              this.$router.replace("/");
+              console.log(userCredentials);
+            },
+            (error) => {
+              this.error = error.message;
+              console.log(info);
+            }
+          );
+      }
+    },
+  },
 };
 </script>
