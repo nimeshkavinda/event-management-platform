@@ -86,7 +86,7 @@ export default {
   methods: {
     getFeaturedEvent: function() {
       axios
-        .get("/api/events")
+        .get("https://localhost:8000/api/events")
         .then((response) => (this.events = response.data))
         .catch(function(error) {
           console.log(error);

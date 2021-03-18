@@ -241,6 +241,7 @@ import {
   mdbCol,
 } from "mdbvue";
 import GoTopButton from "vue-go-top-button";
+import Firebase from "firebase";
 export default {
   name: "IndexPage",
   components: {
@@ -256,6 +257,18 @@ export default {
     mdbRow,
     mdbCol,
     GoTopButton,
+  },
+  data() {
+    return {
+      user: null,
+    };
+  },
+  mounted() {
+    Firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.user = user.email;
+      }
+    });
   },
 };
 </script>

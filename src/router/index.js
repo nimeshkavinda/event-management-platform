@@ -9,6 +9,7 @@ import Events from "../views/Events.vue";
 import ArticlePage from "../views/Article.vue";
 import Blog from "../views/Blog.vue"
 import EventPage from "../views/Event.vue";
+// import { auth } from '../firebase'
 
 Vue.use(VueRouter);
 
@@ -55,6 +56,9 @@ const routes = [
     path: "/profile",
     name: "Profile",
     component: Profile,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/events",
@@ -67,6 +71,16 @@ const routes = [
     component: EventPage,
   },
 ];
+
+// router.beforeEach((to, from, next) => {
+//   const requiresAuth = to.matched.some(x => x.meta.requiresAuth)
+
+//   if (requiresAuth && !auth.currentUser) {
+//     next('/login')
+//   } else {
+//     next()
+//   }
+// })
 
 const router = new VueRouter({
   scrollBehavior() {
