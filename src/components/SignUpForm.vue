@@ -52,7 +52,7 @@ export default {
   components: { mdbAlert },
   data() {
     return {
-      // name: null,
+      name: null,
       email: null,
       conPassword: null,
       error: null,
@@ -76,19 +76,23 @@ export default {
       const info = {
         email: this.email,
         password: this.password,
-        // name: this.name,
+        name: this.name,
       };
       if (!this.error) {
         Firebase.auth()
           .createUserWithEmailAndPassword(this.email, this.password)
           .then(
             (userCredentials) => {
-              this.$router.replace("/");
-              console.log(userCredentials);
+              return userCredentials.user
+                .updateProfile({
+                  name: info.name,
+                })
+                .then(() => {
+                  this.$router.replace("/");
+                });
             },
             (error) => {
               this.error = error.message;
-              console.log(info);
             }
           );
       }

@@ -46,14 +46,16 @@ export default {
   components: { mdbAlert },
   data() {
     return {
-      email: "",
-      password: "",
-      error: "",
+      // name: null,
+      email: null,
+      password: null,
+      error: null,
     };
   },
   methods: {
     login() {
       const info = {
+        // name: null,
         email: this.email,
         password: this.password,
       };
