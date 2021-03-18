@@ -10,7 +10,7 @@
       >
         <mdb-navbar-brand
           href="https://fossnsbm.org/"
-          style="margin-right: 190px;"
+          style="margin-right: 10%;"
         >
           <img
             src="https://firebasestorage.googleapis.com/v0/b/foss-rsvp.appspot.com/o/foss_nsbm2.png?alt=media&token=7d062d51-911f-4938-9c5c-73c0dee8c5ff"
@@ -55,7 +55,7 @@
           <mdb-navbar-nav right v-else>
             <mdb-dropdown tag="li" class="nav-item">
               <mdb-dropdown-toggle tag="a" navLink slot="toggle" waves-fixed>{{
-                this.user
+                this.user.displayName
               }}</mdb-dropdown-toggle>
               <mdb-dropdown-menu>
                 <mdb-dropdown-item>
@@ -291,7 +291,7 @@ export default {
   mounted() {
     Firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.user = user.email;
+        this.user = user;
       }
     });
   },
