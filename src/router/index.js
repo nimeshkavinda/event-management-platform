@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import { component } from 'vue/types/umd';
+// import { component } from "vue/types/umd";
 import Home from "../views/Home.vue";
 import NotFoundPage from "../views/NotFound.vue";
 import Login from "../views/Login.vue";
@@ -8,7 +8,7 @@ import SignUp from "../views/SignUp.vue";
 import Profile from "../views/Profile.vue";
 import Events from "../views/Events.vue";
 import ArticlePage from "../views/Article.vue";
-import Blog from "../views/Blog.vue"
+import Blog from "../views/Blog.vue";
 import EventPage from "../views/Event.vue";
 // import { auth } from '../firebase'
 
@@ -58,8 +58,8 @@ const routes = [
     name: "Profile",
     component: Profile,
     meta: {
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     path: "/events",
@@ -72,12 +72,6 @@ const routes = [
     component: EventPage,
   },
 ];
-    path:'*',
-    component:Error,
-  }
- 
-
-]
 
 // router.beforeEach((to, from, next) => {
 //   const requiresAuth = to.matched.some(x => x.meta.requiresAuth)
