@@ -34,7 +34,7 @@
               >Forum</mdb-nav-item
             >
           </mdb-navbar-nav>
-          <mdb-btn-group style="width: 20em"
+          <mdb-btn-group v-if="!user" style="width: 20em"
             ><router-link to="/login">
               <mdb-btn
                 color="transparent"
@@ -52,11 +52,28 @@
               ></router-link
             >
           </mdb-btn-group>
+          <mdb-navbar-nav right v-else>
+            <mdb-dropdown tag="li" class="nav-item">
+              <mdb-dropdown-toggle tag="a" navLink slot="toggle" waves-fixed>{{
+                this.user
+              }}</mdb-dropdown-toggle>
+              <mdb-dropdown-menu>
+                <mdb-dropdown-item>
+                  <router-link to="/profile">Profile</router-link>
+                </mdb-dropdown-item>
+                <mdb-dropdown-item
+                  ><a role="button" @click="$emit('logout')"
+                    >Log out</a
+                  ></mdb-dropdown-item
+                >
+              </mdb-dropdown-menu>
+            </mdb-dropdown>
+          </mdb-navbar-nav>
         </mdb-navbar-toggler>
       </mdb-navbar>
     </div>
 
-    <router-view />
+    <router-view :user="user" @logout="logout" />
 
     <mdb-footer color="#000000 black" class="pt-5 mt-4">
       <mdb-container fluid class="text-left mx-4">
@@ -239,6 +256,10 @@ import {
   mdbContainer,
   mdbRow,
   mdbCol,
+  mdbDropdown,
+  mdbDropdownToggle,
+  mdbDropdownMenu,
+  mdbDropdownItem,
 } from "mdbvue";
 import GoTopButton from "vue-go-top-button";
 import Firebase from "firebase";
@@ -256,6 +277,10 @@ export default {
     mdbContainer,
     mdbRow,
     mdbCol,
+    mdbDropdown,
+    mdbDropdownToggle,
+    mdbDropdownMenu,
+    mdbDropdownItem,
     GoTopButton,
   },
   data() {
@@ -269,6 +294,16 @@ export default {
         this.user = user.email;
       }
     });
+  },
+  methods: {
+    logout() {
+      Firebase.auth()
+        .signOut()
+        .then(() => {
+          this.user = null;
+          this.$router.push("/");
+        });
+    },
   },
 };
 </script>
