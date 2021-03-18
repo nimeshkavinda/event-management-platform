@@ -6,6 +6,15 @@
       </mdb-alert>
       <div class="form-group">
         <input
+          type="text"
+          class="form-control"
+          placeholder="Full name"
+          required
+          v-model="name"
+        />
+      </div>
+      <div class="form-group">
+        <input
           type="email"
           class="form-control"
           placeholder="Email address"
@@ -52,7 +61,7 @@ export default {
   components: { mdbAlert },
   data() {
     return {
-      name: null,
+      displayName: null,
       email: null,
       conPassword: null,
       error: null,
@@ -76,7 +85,7 @@ export default {
       const info = {
         email: this.email,
         password: this.password,
-        name: this.name,
+        displayName: this.name,
       };
       if (!this.error) {
         Firebase.auth()
@@ -85,7 +94,7 @@ export default {
             (userCredentials) => {
               return userCredentials.user
                 .updateProfile({
-                  name: info.name,
+                  displayName: info.displayName,
                 })
                 .then(() => {
                   this.$router.replace("/");

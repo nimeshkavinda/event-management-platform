@@ -1,7 +1,7 @@
 <template>
   <div>
     <mdb-container fluid>
-      <mdb-row class="mx-5 mt-5">
+      <mdb-row class="mx-5 mt-5 pl-lg-5">
         <mdb-col lg="6" class="py-5 mt-5 ml-lg-5"
           ><p
             class="h1 light-green-text text-left font-weight-bold"
@@ -16,25 +16,15 @@
             <a @click="$router.go(-1)">Go Back</a>
           </p></mdb-col
         ><mdb-col lg="5"
-          ><div
-            class="tenor-gif-embed ml-lg-5"
-            data-postid="14949853"
-            data-share-method="host"
-            data-width="100%"
-            data-aspect-ratio="1.0"
-          >
-            <a
-              href="https://tenor.com/view/verdrietig-sad-cry-lonely-gif-14949853"
-              >Verdrietig Sad GIF</a
-            >
-            from
-            <a href="https://tenor.com/search/verdrietig-gifs"
-              >Verdrietig GIFs</a
-            >
-          </div>
-        </mdb-col></mdb-row
-      ></mdb-container
-    >
+          ><iframe
+            src="https://giphy.com/embed/qQdL532ZANbjy"
+            width="100%"
+            height="600px"
+            frameBorder="0"
+            class="giphy-embed"
+            allowFullScreen
+          ></iframe> </mdb-col></mdb-row
+    ></mdb-container>
   </div>
 </template>
 
