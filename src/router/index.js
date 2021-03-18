@@ -10,7 +10,7 @@ import Events from "../views/Events.vue";
 import ArticlePage from "../views/Article.vue";
 import Blog from "../views/Blog.vue";
 import EventPage from "../views/Event.vue";
-// import { auth } from '../firebase'
+// import { auth } from '../firebase';
 
 Vue.use(VueRouter);
 
@@ -76,12 +76,26 @@ const routes = [
 // router.beforeEach((to, from, next) => {
 //   const requiresAuth = to.matched.some(x => x.meta.requiresAuth)
 
-//   if (requiresAuth && !auth.currentUser) {
+//   if (requiresAuth && !auth.user) {
 //     next('/login')
 //   } else {
 //     next()
 //   }
 // })
+
+// router.beforeEach((to, from, next) => {
+//   const currentUser = firebase.auth().currentUser;
+//   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+
+//   if (requiresAuth && !currentUser) {
+//     const loginpath = window.location.pathname;   
+//     next({ name: 'login', query: { from: loginpath } });
+//   } else if (!requiresAuth && currentUser) {
+//     next("defaultView");
+//   } else {
+//     next();
+//   }
+// });
 
 const router = new VueRouter({
   scrollBehavior() {

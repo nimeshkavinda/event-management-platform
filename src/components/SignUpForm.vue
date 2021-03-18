@@ -8,7 +8,7 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Full Name"
+          placeholder="Full name"
           required
           v-model="name"
         />

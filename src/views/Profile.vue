@@ -24,7 +24,9 @@
                   Good Afternoon
                 </h3>
               </a>
-              <h1 class="h1 mb-3 font-weight-bold">Nimesh Kavinda</h1>
+              <h1 class="h1 mb-3 font-weight-bold">
+                {{ this.user.displayName }}
+              </h1>
               <mdb-icon fab icon="facebook-f" size="1x" class="mr-3" />
               <mdb-icon fab icon="instagram" size="1x" class="mr-3" />
               <mdb-icon fab icon="twitter" size="1x" class="mr-3" />
@@ -87,12 +89,18 @@
 import { mdbJumbotron, mdbRow, mdbCol, mdbBtn, mdbIcon } from "mdbvue";
 export default {
   name: "JumbotronPage",
+  props: ["user"],
   components: {
     mdbJumbotron,
     mdbRow,
     mdbCol,
     mdbBtn,
     mdbIcon,
+  },
+  mounted() {
+    if (this.user === null) {
+      this.$router.push("/login");
+    }
   },
   methods: {
     isMorning() {
