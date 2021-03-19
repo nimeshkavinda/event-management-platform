@@ -55,7 +55,7 @@
 
 <script>
 import { mdbAlert } from "mdbvue";
-import Firebase from "firebase";
+import firebase from "firebase";
 export default {
   name: "SignUpForm",
   components: { mdbAlert },
@@ -88,7 +88,8 @@ export default {
         displayName: this.name,
       };
       if (!this.error) {
-        Firebase.auth()
+        firebase
+          .auth()
           .createUserWithEmailAndPassword(this.email, this.password)
           .then(
             (userCredentials) => {
