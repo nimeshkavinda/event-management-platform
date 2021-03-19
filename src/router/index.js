@@ -5,11 +5,12 @@ import Home from "../views/Home.vue";
 import NotFoundPage from "../views/NotFound.vue";
 import Login from "../views/Login.vue";
 import SignUp from "../views/SignUp.vue";
-import Profile from "../views/Profile.vue";
+import ProfilePage from "../views/Profile.vue";
 import Events from "../views/Events.vue";
 import ArticlePage from "../views/Article.vue";
 import Blog from "../views/Blog.vue";
 import EventPage from "../views/Event.vue";
+import EditProfilePage from "../views/EditProfile.vue";
 // import { auth } from '../firebase';
 
 Vue.use(VueRouter);
@@ -55,8 +56,16 @@ const routes = [
   },
   {
     path: "/profile",
-    name: "Profile",
-    component: Profile,
+    name: "ProfilePage",
+    component: ProfilePage,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/profile/settings",
+    name: "EditProfilePage",
+    component: EditProfilePage,
     meta: {
       requiresAuth: true,
     },
@@ -88,7 +97,7 @@ const routes = [
 //   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 
 //   if (requiresAuth && !currentUser) {
-//     const loginpath = window.location.pathname;   
+//     const loginpath = window.location.pathname;
 //     next({ name: 'login', query: { from: loginpath } });
 //   } else if (!requiresAuth && currentUser) {
 //     next("defaultView");

@@ -3,7 +3,7 @@
     <form @submit.prevent="login">
       <div class="form-group">
         <mdb-alert color="danger" v-if="error">
-          {{this.error}}
+          {{ this.error }}
         </mdb-alert>
         <input
           type="email"
@@ -39,14 +39,13 @@
 </template>
 
 <script>
-import Firebase from "firebase";
+import firebase from "firebase";
 import { mdbAlert } from "mdbvue";
 export default {
   name: "LoginForm",
   components: { mdbAlert },
   data() {
     return {
-      // name: null,
       email: null,
       password: null,
       error: null,
@@ -55,12 +54,12 @@ export default {
   methods: {
     login() {
       const info = {
-        // name: null,
         email: this.email,
         password: this.password,
       };
 
-      Firebase.auth()
+      firebase
+        .auth()
         .signInWithEmailAndPassword(info.email, info.password)
         .then(
           () => {

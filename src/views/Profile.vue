@@ -86,22 +86,25 @@
             Attended Events
           </p>
         </mdb-col>
-        <mdb-col lg="6" class="mx-5">
-          <a class="h6 blue-text font-weight-bold">
-            See All
-          </a>
-        </mdb-col>
       </mdb-row>
     </mdb-container>
   </div>
 </template>
 
 <script>
-import { mdbJumbotron, mdbRow, mdbCol, mdbBtn, mdbIcon } from "mdbvue";
+import {
+  mdbContainer,
+  mdbJumbotron,
+  mdbRow,
+  mdbCol,
+  mdbBtn,
+  mdbIcon,
+} from "mdbvue";
 export default {
-  name: "JumbotronPage",
+  name: "ProfilePage",
   props: ["user"],
   components: {
+    mdbContainer,
     mdbJumbotron,
     mdbRow,
     mdbCol,

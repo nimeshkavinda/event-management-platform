@@ -10,7 +10,7 @@
       >
         <mdb-navbar-brand
           href="https://fossnsbm.org/"
-          style="margin-right: 12%;"
+          style="margin-right: 11%;"
         >
           <img
             src="https://firebasestorage.googleapis.com/v0/b/foss-rsvp.appspot.com/o/foss_nsbm2.png?alt=media&token=7d062d51-911f-4938-9c5c-73c0dee8c5ff"
