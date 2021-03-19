@@ -12,12 +12,12 @@
                 <img
                   v-if="this.photoUrl"
                   :src="this.photoUrl"
-                  class="rounded-circle img-fluid"
+                  class="rounded-circle img-fluid w-100"
                 />
                 <img
                   v-else
                   src="http://cdn.onlinewebfonts.com/svg/img_258083.png"
-                  class="rounded-circle img-fluid"
+                  class="rounded-circle img-fluid w-100"
                 />
               </mdb-avatar>
             </mdb-col>
@@ -144,7 +144,7 @@ export default {
       this.displayName = this.user.displayName;
       this.email = this.user.email;
       this.phoneNumber = this.user.phoneNumber;
-      this.photoUrl = this.user.photoUrl;
+      this.photoUrl = this.user.photoURL;
     },
   },
 };

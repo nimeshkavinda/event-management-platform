@@ -55,9 +55,20 @@
           <mdb-navbar-nav right v-else>
             <mdb-dropdown tag="li" class="nav-item">
               <mdb-dropdown-toggle tag="a" navLink slot="toggle" waves-fixed
-                ><mdb-icon icon="user" class="mx-lg-2" />{{
-                  this.user.displayName
-                }}</mdb-dropdown-toggle
+                ><mdb-avatar class="mx-auto white">
+                  <img
+                    v-if="this.user.photoURL"
+                    :src="this.user.photoURL"
+                    class="rounded-circle mr-lg-2"
+                    width="24"
+                  />
+                  <img
+                    v-else
+                    src="http://cdn.onlinewebfonts.com/svg/img_258083.png"
+                    class="rounded-circle mr-lg-2"
+                    width="24"
+                  /> </mdb-avatar
+                >{{ this.user.displayName }}</mdb-dropdown-toggle
               >
               <mdb-dropdown-menu>
                 <mdb-dropdown-item>
@@ -262,7 +273,6 @@ import {
   mdbDropdownToggle,
   mdbDropdownMenu,
   mdbDropdownItem,
-  mdbIcon,
 } from "mdbvue";
 import GoTopButton from "vue-go-top-button";
 import Firebase from "firebase";
@@ -284,7 +294,6 @@ export default {
     mdbDropdownToggle,
     mdbDropdownMenu,
     mdbDropdownItem,
-    mdbIcon,
     GoTopButton,
   },
   data() {
