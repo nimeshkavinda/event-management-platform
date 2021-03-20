@@ -17,10 +17,16 @@
         ></mdb-row
       >
       <mdb-row class="mx-5 mt-5">
-        <mdb-col md="12"
-          ><p class="h3 light-green-text font-weight-bold">
+        <mdb-col md="11"
+          ><p class="h3 blue-text font-weight-bold">
             Upcoming Events
           </p></mdb-col
+        ><mdb-col md="1"
+          ><router-link to="/events/all"
+            ><p class="h5 blue-text font-weight-bold">
+              See All
+            </p></router-link
+          ></mdb-col
         ></mdb-row
       ><mdb-container fluid
         ><mdb-row class="mt-4 d-flex justify-content-center"
@@ -30,11 +36,17 @@
             :event="event"
           ></EventCard></mdb-row
       ></mdb-container>
-      <mdb-row class="mx-5 mt-5">
+      <mdb-row class="mx-5 mt-5 d-flex justify-content-between">
         <mdb-col md="10"
-          ><p class="h3 light-green-text font-weight-bold">
+          ><p class="h3 blue-text font-weight-bold">
             Past Events
           </p></mdb-col
+        ><mdb-col md="1"
+          ><router-link to="/events/all"
+            ><p class="h5 blue-text font-weight-bold">
+              See All
+            </p></router-link
+          ></mdb-col
         ></mdb-row
       ><mdb-container fluid
         ><mdb-row class="mt-4 d-flex justify-content-center"
@@ -44,9 +56,9 @@
             :event="event"
           ></EventCard></mdb-row
       ></mdb-container>
-      <mdb-row class="mx-5 mt-5">
+      <mdb-row class="mx-5 my-5">
         <mdb-col md="4"
-          ><p class="h3 light-green-text font-weight-bold">
+          ><p class="h3 blue-text font-weight-bold">
             Frequently Asked Questions
           </p></mdb-col
         >
