@@ -14,6 +14,7 @@
     "core-js": "^3.6.5",
     "firebase": "^8.3.0",
     "mdbvue": "6.7.2",
+    "moment": "^2.29.1",
     "tailwindcss": "^2.0.3",
     "vue": "^2.6.11",
     "vue-go-top-button": "^1.0.4",

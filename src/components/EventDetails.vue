@@ -4,7 +4,7 @@
       <mdb-row class="mx-5 d-flex justify-content-between">
         <mdb-col lg="6" class="mb-sm-3"
           ><p class="h3 light-green-text font-weight-bold">
-            {{ event.datetime }}
+            {{ moment(event.datetime).format("LLLL") }}
           </p>
           <p class="h1 font-weight-bold">
             {{ event.name }}
@@ -80,20 +80,33 @@
               </mdb-view>
             </mdb-col>
             <mdb-col lg="5" class="text-left mx-3 my-3 align-self-center">
-              <a href="#!" class="light-green-text">
-                <h6 class="h3 pb-1 font-weight-bold">
-                  {{ event.name }}
-                </h6>
-              </a>
-              <h4 class="h4 mb-4">This is title of the news</h4>
-
+              <h6 class="h2 pb-4 font-weight-bold">
+                {{ event.name }}
+              </h6>
+              <h4 class="h4 mb-2">
+                Date: <strong>{{ moment(event.datetime).format("LLLL") }}</strong>
+              </h4>
+              <h4 class="h4 mb-4">
+                Venue: <strong>{{ event.venue }}</strong>
+              </h4>
               <p class="font-weight-normal">
-                by <a><strong>Johnathan Doe</strong></a
-                >, 19/08/2016
+                Hosted by
+                <a
+                  ><strong>{{ event.speaker }}</strong></a
+                >, Organized by
+                <a
+                  ><strong>{{ event.organizer }}</strong></a
+                >
               </p>
-              <mdb-btn color="light-green" style="border-radius:1em;"
+
+              <mdb-btn color="light-green mr-4" style="border-radius:1em;"
                 >RSVP</mdb-btn
               >
+
+              <mdb-icon fab icon="facebook-f" size="1x" class="mr-3" />
+              <mdb-icon fab icon="instagram" size="1x" class="mr-3" />
+              <mdb-icon fab icon="twitter" size="1x" class="mr-3" />
+              <mdb-icon fab icon="linkedin" size="1x" class="mr-3" />
             </mdb-col>
           </mdb-row>
         </mdb-jumbotron>
@@ -125,6 +138,7 @@ import {
   mdbAvatar,
   mdbMask,
   mdbView,
+  mdbIcon,
 } from "mdbvue";
 export default {
   name: "EventDetails",
@@ -138,6 +152,7 @@ export default {
     mdbAvatar,
     mdbView,
     mdbMask,
+    mdbIcon,
   },
 };
 </script>

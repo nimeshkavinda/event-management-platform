@@ -7,8 +7,10 @@ import router from "./router";
 import axios from "axios";
 import vuetify from "./plugins/vuetify";
 import { auth } from "./firebase";
+import moment from 'moment'
 
 Vue.prototype.$axios = axios;
+Vue.prototype.moment = moment
 Vue.config.productionTip = false;
 
 // new Vue({
