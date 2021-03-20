@@ -11,7 +11,7 @@
         featuredEvent.venue
       }}</mdb-card-text>
       <mdb-card-title class="h4 font-weight-bold">{{
-        featuredEvent.datetime
+        moment(featuredEvent.datetime).format("LLLL")
       }}</mdb-card-title>
       <mdb-btn
         :to="featuredEvent.thumbnailUrl"

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BlogArticle :key="article.title" :blogArticle="article"></BlogArticle>
+    <BlogArticle :key="article.id" :blogArticle="article"></BlogArticle>
   </div>
 </template>
 
