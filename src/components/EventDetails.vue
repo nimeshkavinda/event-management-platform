@@ -4,10 +4,10 @@
       <mdb-row class="mx-5">
         <mdb-col lg="6" class="mb-sm-3"
           ><p class="h3 light-green-text font-weight-bold">
-            Thursday, February 25, 2021
+            {{ event.datetime }}
           </p>
           <p class="h1 font-weight-bold">
-            Hash Code
+            {{ event.name }}
           </p></mdb-col
         >
         <mdb-col lg="6" class="mb-sm-5">
@@ -29,7 +29,7 @@
                     </p> </mdb-row
                   ><mdb-row>
                     <p class="h5 font-weight-bold">
-                      Johnathan Doe
+                      {{ event.speaker }}
                     </p></mdb-row
                   ></mdb-col
                 >
@@ -52,7 +52,7 @@
                     </p> </mdb-row
                   ><mdb-row>
                     <p class="h5 font-weight-bold">
-                      Women in FOSS NSBM
+                      {{ event.organizer }}
                     </p></mdb-row
                   ></mdb-col
                 >
@@ -79,7 +79,7 @@
             <mdb-col md="5" class="text-left mx-3 my-3 align-self-center">
               <a href="#!" class="light-green-text">
                 <h6 class="h3 pb-1 font-weight-bold">
-                  Hash Code
+                  {{ event.name }}
                 </h6>
               </a>
               <h4 class="h4 mb-4">This is title of the news</h4>
@@ -102,11 +102,7 @@
               Details
             </p>
             <p class="font-weight-normal">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque, totam rem aperiam, eaque ipsa quae ab illo
-              inventore veSritatis et quasi architecto beatae vitae dicta sunt
-              explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-              aspernatur.
+              {{ event.description }}
             </p>
           </mdb-col>
         </mdb-row>
@@ -128,7 +124,8 @@ import {
   mdbView,
 } from "mdbvue";
 export default {
-  name: "JumbotronPage",
+  name: "EventDetailsPage",
+  props: ["event"],
   components: {
     mdbContainer,
     mdbJumbotron,

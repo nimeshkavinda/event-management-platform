@@ -22,7 +22,7 @@
             Upcoming Events
           </p></mdb-col
         ><mdb-col md="1"
-          ><router-link to="/events/all"
+          ><router-link to="/allevents"
             ><p class="h5 blue-text font-weight-bold">
               See All
             </p></router-link
@@ -42,7 +42,7 @@
             Past Events
           </p></mdb-col
         ><mdb-col md="1"
-          ><router-link to="/events/all"
+          ><router-link to="/allevents"
             ><p class="h5 blue-text font-weight-bold">
               See All
             </p></router-link

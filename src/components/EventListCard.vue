@@ -16,22 +16,22 @@
             </mdb-col>
             <mdb-col lg="8">
               <div class="card-body">
-                <h5 class="h5 font-weight-bold">
+                <h5 class="h5 blue-text font-weight-normal">
                   {{ event.datetime }}
                 </h5>
-                <h3 class="h5 font-weight-bold">
+                <h3 class="h2 font-weight-bold">
                   {{ event.name }}
                 </h3>
-                <h5 class="h5 font-weight-bold">
+                <h5 class="h5 font-weight-normal">
                   {{ event.description }}
                 </h5>
-                <mdb-row>
+                <mdb-row class="mt-3">
                   <mdb-col col="1">
                     <img
                       :src="event.organizerPhotoUrl"
                       class="rounded-circle"
-                      height="22"
-                      width="22"
+                      height="26"
+                      width="26"
                       alt=""
                       loading="lazy"
                       style="object-fit: cover;"

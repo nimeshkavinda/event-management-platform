@@ -77,12 +77,12 @@ const routes = [
     component: Events,
   },
   {
-    path: "/events/e",
+    path: "/events/:id",
     name: "EventPage",
     component: EventPage,
   },
   {
-    path: "/events/all",
+    path: "/allevents/",
     name: "AllEventsPage",
     component: AllEventsPage,
   },
