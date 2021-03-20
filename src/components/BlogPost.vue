@@ -48,7 +48,7 @@ import {
   mdbMask,
 } from "mdbvue";
 export default {
-  name: "CardPage",
+  name: "PostPage",
   props: ["blogPost"],
   components: {
     mdbRow,
