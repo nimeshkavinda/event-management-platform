@@ -26,7 +26,7 @@
             Featured Event
           </p>
           <FeaturedEventCard
-            v-for="event in events"
+            v-for="event in events.slice(0, 1)"
             :key="event.id"
             :featuredEvent="event"
           ></FeaturedEventCard>
@@ -79,14 +79,14 @@ export default {
     this.getArticles();
   },
   // async created() {
-  //   const result = await axios.get("/api/upcomingevents");
+  //   const result = await axios.get("/api/events");
   //   const event = result.data;
   //   this.events = event;
   // },
   methods: {
     getFeaturedEvent: function() {
       axios
-        .get("https://localhost:8000/api/events")
+        .get("/api/events")
         .then((response) => (this.events = response.data))
         .catch(function(error) {
           console.log(error);

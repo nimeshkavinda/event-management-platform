@@ -22,14 +22,28 @@
             Upcoming Events
           </p></mdb-col
         ></mdb-row
-      >
+      ><mdb-container fluid
+        ><mdb-row class="mt-4 d-flex justify-content-center"
+          ><EventCard
+            v-for="event in events.slice(0, 3)"
+            :key="event.id"
+            :event="event"
+          ></EventCard></mdb-row
+      ></mdb-container>
       <mdb-row class="mx-5 mt-5">
         <mdb-col md="10"
           ><p class="h3 light-green-text font-weight-bold">
             Past Events
           </p></mdb-col
         ></mdb-row
-      >
+      ><mdb-container fluid
+        ><mdb-row class="mt-4 d-flex justify-content-center"
+          ><EventCard
+            v-for="event in events.slice(3, 6)"
+            :key="event.id"
+            :event="event"
+          ></EventCard></mdb-row
+      ></mdb-container>
       <mdb-row class="mx-5 mt-5">
         <mdb-col md="4"
           ><p class="h3 light-green-text font-weight-bold">
@@ -44,7 +58,8 @@
 
 <script>
 import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
-// import EventCard from "../components/EventCard.vue";
+import axios from "axios";
+import EventCard from "../components/EventCard.vue";
 import FaqAccordion from "../components/Faq.vue";
 export default {
   name: "EventsPage",
@@ -53,7 +68,25 @@ export default {
     mdbRow,
     mdbCol,
     FaqAccordion,
-    // EventCard,
+    EventCard,
+  },
+  data() {
+    return {
+      events: [],
+    };
+  },
+  created() {
+    this.getEvents();
+  },
+  methods: {
+    getEvents: function() {
+      axios
+        .get("/api/events")
+        .then((response) => (this.events = response.data))
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
   },
 };
 </script>

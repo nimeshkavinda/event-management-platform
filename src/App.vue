@@ -10,7 +10,7 @@
       >
         <mdb-navbar-brand
           href="https://fossnsbm.org/"
-          style="margin-right: 11%;"
+          style="margin-right: 10%;"
         >
           <img
             src="https://firebasestorage.googleapis.com/v0/b/foss-rsvp.appspot.com/o/foss_nsbm2.png?alt=media&token=7d062d51-911f-4938-9c5c-73c0dee8c5ff"
@@ -60,13 +60,13 @@
                     v-if="this.user.photoURL"
                     :src="this.user.photoURL"
                     class="rounded-circle mr-lg-2"
-                    width="24"
+                    width="26"
                   />
                   <img
                     v-else
                     src="http://cdn.onlinewebfonts.com/svg/img_258083.png"
                     class="rounded-circle mr-lg-2"
-                    width="24"
+                    width="26"
                   /> </mdb-avatar
                 >{{ this.user.displayName }}</mdb-dropdown-toggle
               >
@@ -273,9 +273,10 @@ import {
   mdbDropdownToggle,
   mdbDropdownMenu,
   mdbDropdownItem,
+  mdbAvatar,
 } from "mdbvue";
 import GoTopButton from "vue-go-top-button";
-import Firebase from "firebase";
+import firebase from "firebase";
 export default {
   name: "IndexPage",
   components: {
@@ -294,6 +295,7 @@ export default {
     mdbDropdownToggle,
     mdbDropdownMenu,
     mdbDropdownItem,
+    mdbAvatar,
     GoTopButton,
   },
   data() {
@@ -302,7 +304,7 @@ export default {
     };
   },
   mounted() {
-    Firebase.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.user = user;
       }
@@ -310,7 +312,8 @@ export default {
   },
   methods: {
     logout() {
-      Firebase.auth()
+      firebase
+        .auth()
         .signOut()
         .then(() => {
           this.user = null;
