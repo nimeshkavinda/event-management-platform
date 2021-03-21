@@ -50,7 +50,7 @@
                 <mdb-col lg="8"
                   ><mdb-row
                     ><p class="h5 light-green-text font-weight-bold pt-lg-3">
-                      Host
+                      Organizer
                     </p> </mdb-row
                   ><mdb-row>
                     <p class="h5 font-weight-bold">
@@ -84,7 +84,8 @@
                 {{ event.name }}
               </h6>
               <h4 class="h4 mb-2">
-                Date: <strong>{{ moment(event.datetime).format("LLLL") }}</strong>
+                Date:
+                <strong>{{ moment(event.datetime).format("LLLL") }}</strong>
               </h4>
               <h4 class="h4 mb-4">
                 Venue: <strong>{{ event.venue }}</strong>
