@@ -29,7 +29,7 @@
                   <mdb-row class="mt-3">
                     <mdb-col col="1">
                       <img
-                        :src="event.organizerPhotoUrl"
+                        :src="event.speakerPhotoUrl"
                         class="rounded-circle"
                         height="26"
                         width="26"
@@ -40,7 +40,7 @@
                     </mdb-col>
                     <mdb-col col="10">
                       <p class="card-text">
-                        {{ event.organizer }}
+                        {{ event.speaker }}
                       </p>
                     </mdb-col>
                   </mdb-row>
