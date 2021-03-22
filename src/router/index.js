@@ -12,6 +12,7 @@ import Blog from "../views/Blog.vue";
 import EventPage from "../views/Event.vue";
 import EditProfilePage from "../views/EditProfile.vue";
 import AllEventsPage from "../views/AllEvents.vue";
+import AdminPage from "../views/Admin.vue";
 // import { auth } from '../firebase';
 
 Vue.use(VueRouter);
@@ -85,6 +86,11 @@ const routes = [
     path: "/allevents/",
     name: "AllEventsPage",
     component: AllEventsPage,
+  },
+  {
+    path: "/admin/",
+    name: "AdminPage",
+    component: AdminPage,
   },
 ];
 
