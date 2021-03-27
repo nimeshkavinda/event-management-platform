@@ -13,11 +13,13 @@
       <mdb-card-title class="h4 font-weight-bold">{{
         moment(featuredEvent.datetime).format("LLLL")
       }}</mdb-card-title>
-      <mdb-btn
-        :to="featuredEvent.thumbnailUrl"
-        color="light-green"
-        style="border-radius:1em;"
-        >Attend</mdb-btn
+      <router-link :to="'/events/' + featuredEvent.id" class="black-text"
+        ><mdb-btn
+          :to="featuredEvent.thumbnailUrl"
+          color="light-green"
+          style="border-radius:1em;"
+          >Attend</mdb-btn
+        ></router-link
       >
     </mdb-card-body>
   </mdb-card>

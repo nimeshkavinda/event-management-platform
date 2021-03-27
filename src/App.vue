@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <NavBar :user="user" v-on:logoutUser="logout"></NavBar>
+    <AdminPage :admin="admin" v-if="AdminPage"></AdminPage>
     <router-view :user="user" @logout="logout" />
     <Footer></Footer>
   </div>
@@ -10,24 +11,41 @@
 import {} from "mdbvue";
 import NavBar from "./components/NavBar.vue";
 import Footer from "./components/Footer.vue";
+import AdminPage from "./views/Admin.vue";
 import firebase from "firebase";
 export default {
   name: "IndexPage",
   components: {
     NavBar,
     Footer,
+    AdminPage,
   },
   data() {
     return {
       user: null,
+      admin: null,
     };
   },
   mounted() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.user = user;
+        if (/@fossnsbm.org\s*$/.test(user.email)) {
+          this.admin = user;
+        } else {
+          this.admin = null;
+        }
       }
     });
+  },
+  computed: {
+    AdminPage() {
+      if (this.$route.path == "/admin") {
+        return true;
+      } else {
+        return false;
+      }
+    },
   },
   methods: {
     logout() {

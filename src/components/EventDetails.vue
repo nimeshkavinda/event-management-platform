@@ -63,9 +63,9 @@
           </mdb-row>
         </mdb-col>
       </mdb-row>
-      <mdb-row class="mx-5 mb-5">
+      <mdb-row class="mx-4 mb-5">
         <mdb-jumbotron
-          class="mb-0 text-center hoverable p-1 mx-5 w-100"
+          class="mb-0 text-center hoverable p-1 w-100"
           style="border-radius: 0.5em;"
         >
           <mdb-row>
@@ -100,7 +100,12 @@
                 >
               </p>
 
-              <mdb-btn color="light-green mr-4" style="border-radius:1em;"
+              <mdb-btn
+                id="rsvpBtn"
+                type="button"
+                color="light-green mr-4"
+                style="border-radius:1em;"
+                @click="this.reference.open()"
                 >RSVP</mdb-btn
               >
 
@@ -113,7 +118,7 @@
         </mdb-jumbotron>
       </mdb-row>
       <mdb-container fluid class="mx-lg-5">
-        <mdb-row class="mx-5">
+        <mdb-row>
           <mdb-col lg="8">
             <p class="h3 font-weight-bold">
               Details
@@ -141,6 +146,7 @@ import {
   mdbView,
   mdbIcon,
 } from "mdbvue";
+import * as typeformEmbed from "@typeform/embed";
 export default {
   name: "EventDetails",
   props: ["event"],
@@ -154,6 +160,28 @@ export default {
     mdbView,
     mdbMask,
     mdbIcon,
+  },
+  methods: {
+    openTypeForm() {
+      const reference = typeformEmbed.makePopup(
+        "https://bs1i1lwo3jj.typeform.com/to/I38CzJV3", // NOTE: Replace with your typeform URL
+        {
+          mode: "popup",
+          autoClose: 3000,
+          hideHeaders: true,
+          hideFooters: true,
+          onSubmit: function() {
+            console.log("Typeform successfully submitted");
+          },
+        }
+      );
+
+      reference.open();
+
+      setTimeout(function() {
+        reference.close();
+      }, 10000); // NOTE: In this code, the typeform will automatically open, then automatically close 10 seconds later
+    },
   },
 };
 </script>
