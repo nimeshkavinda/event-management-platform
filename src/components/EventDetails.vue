@@ -63,9 +63,9 @@
           </mdb-row>
         </mdb-col>
       </mdb-row>
-      <mdb-row class="mx-5 mb-5">
+      <mdb-row class="mx-4 mb-5">
         <mdb-jumbotron
-          class="mb-0 text-center hoverable p-1 mx-5 w-100"
+          class="mb-0 text-center hoverable p-1 w-100"
           style="border-radius: 0.5em;"
         >
           <mdb-row>
@@ -113,7 +113,7 @@
         </mdb-jumbotron>
       </mdb-row>
       <mdb-container fluid class="mx-lg-5">
-        <mdb-row class="mx-5">
+        <mdb-row>
           <mdb-col lg="8">
             <p class="h3 font-weight-bold">
               Details
