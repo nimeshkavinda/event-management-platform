@@ -7,10 +7,10 @@ import router from "./router";
 import axios from "axios";
 import vuetify from "./plugins/vuetify";
 import { auth } from "./firebase";
-import moment from 'moment'
+import moment from "moment";
 
 Vue.prototype.$axios = axios;
-Vue.prototype.moment = moment
+Vue.prototype.moment = moment;
 Vue.config.productionTip = false;
 
 // new Vue({
@@ -20,11 +20,16 @@ Vue.config.productionTip = false;
 // }).$mount("#app");
 
 let app;
-auth.onAuthStateChanged(() => {
+auth.onAuthStateChanged((user) => {
   if (!app) {
     app = new Vue({
       router,
       vuetify,
+      data() {
+        return {
+          firebaseUser: user,
+        };
+      },
       render: (h) => h(App),
     }).$mount("#app");
   }

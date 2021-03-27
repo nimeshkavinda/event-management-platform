@@ -100,7 +100,12 @@
                 >
               </p>
 
-              <mdb-btn color="light-green mr-4" style="border-radius:1em;"
+              <mdb-btn
+                id="rsvpBtn"
+                type="button"
+                color="light-green mr-4"
+                style="border-radius:1em;"
+                @click="this.reference.open()"
                 >RSVP</mdb-btn
               >
 
@@ -141,6 +146,7 @@ import {
   mdbView,
   mdbIcon,
 } from "mdbvue";
+import * as typeformEmbed from "@typeform/embed";
 export default {
   name: "EventDetails",
   props: ["event"],
@@ -154,6 +160,28 @@ export default {
     mdbView,
     mdbMask,
     mdbIcon,
+  },
+  methods: {
+    openTypeForm() {
+      const reference = typeformEmbed.makePopup(
+        "https://bs1i1lwo3jj.typeform.com/to/I38CzJV3", // NOTE: Replace with your typeform URL
+        {
+          mode: "popup",
+          autoClose: 3000,
+          hideHeaders: true,
+          hideFooters: true,
+          onSubmit: function() {
+            console.log("Typeform successfully submitted");
+          },
+        }
+      );
+
+      reference.open();
+
+      setTimeout(function() {
+        reference.close();
+      }, 10000); // NOTE: In this code, the typeform will automatically open, then automatically close 10 seconds later
+    },
   },
 };
 </script>

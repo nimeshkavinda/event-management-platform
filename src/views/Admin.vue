@@ -1,9 +1,7 @@
 <template>
-  <section style="background: #ededed; padding-bottom: 100px">
-    <!-- Purple Header -->
-    <mdb-edge-header color="indigo" />
+  <section class="pb-5">
+    <mdb-edge-header color="blue" />
 
-    <!-- Card Container -->
     <mdb-container free-bird>
       <mdb-row>
         <mdb-col
@@ -17,21 +15,17 @@
             </h2>
             <p class="pb-4">Example of Material Design Form</p>
 
-            <!--Body-->
             <form>
               <h5 class="h5-responsive">Basic Textbox</h5>
-              <!-- Basic textbox -->
+
               <mdb-input label="Example label" />
-              <!-- /.Basic textbox -->
 
               <h5 class="h5-responsive">Textbox with icon</h5>
               <mdb-input label="Your name" icon="user" />
 
-              <!--Email validation-->
               <h5 class="h5-responsive">E-mail validation</h5>
               <mdb-input type="email" label="Your email" icon="envelope" />
 
-              <!--Textarea with icon-->
               <h5 class="h5-responsive">Textarea</h5>
               <mdb-input
                 type="textarea"
@@ -41,7 +35,6 @@
 
               <h5 class="h5-responsive">Disabled field</h5>
               <mdb-input label="Example label" disabled />
-
               <div class="text-xs-left">
                 <mdb-btn color="primary" @click.native.prevent="handleSubmit()"
                   >Submit</mdb-btn
@@ -54,7 +47,6 @@
         </mdb-col>
       </mdb-row>
     </mdb-container>
-    <!-- /.Card Container -->
   </section>
 </template>
 
@@ -70,6 +62,7 @@ import {
 } from "mdbvue";
 export default {
   name: "AdminPage",
+  props: ["admin"],
   components: {
     mdbEdgeHeader,
     mdbContainer,
@@ -79,9 +72,22 @@ export default {
     mdbInput,
     mdbBtn,
   },
+  data() {
+    return {
+      email: null,
+    };
+  },
+  mounted() {
+    // if (this.admin === null) {
+    //   this.$router.push("/login");
+    // }
+  },
+  created() {
+    this.getAdminData();
+  },
   methods: {
-    handleSubmit() {
-      console.log("Form submitted");
+    getAdminData() {
+      this.email = this.admin.email;
     },
   },
 };
