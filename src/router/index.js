@@ -9,6 +9,7 @@ import ProfilePage from "../views/Profile.vue";
 import Events from "../views/Events.vue";
 import ArticlePage from "../views/Article.vue";
 import Blog from "../views/Blog.vue";
+import Forum from "../views/Forum.vue";
 import EventPage from "../views/Event.vue";
 import EditProfilePage from "../views/EditProfile.vue";
 import AllEventsPage from "../views/AllEvents.vue";
@@ -45,6 +46,11 @@ const routes = [
     path: "/blog/:id",
     name: "ArticlePage",
     component: ArticlePage,
+  },
+  {
+    path: "/forum",
+    name: "Forum",
+    component: Forum,
   },
   {
     path: "/login",

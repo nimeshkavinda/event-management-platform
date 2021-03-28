@@ -105,7 +105,7 @@
                 type="button"
                 color="light-green mr-4"
                 style="border-radius:1em;"
-                @click="this.reference.open()"
+                @click="openTypeForm"
                 >RSVP</mdb-btn
               >
 

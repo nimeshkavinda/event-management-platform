@@ -26,7 +26,9 @@
           <mdb-nav-item
             ><router-link to="/blog">Blog</router-link></mdb-nav-item
           >
-          <mdb-nav-item href="https://forum.fossnsbm.org/">Forum</mdb-nav-item>
+          <mdb-nav-item
+            ><router-link to="/forum">Forum</router-link></mdb-nav-item
+          >
         </mdb-navbar-nav>
         <mdb-btn-group v-if="!user" style="width: 20em"
           ><router-link to="/login">
