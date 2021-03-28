@@ -10,39 +10,76 @@
           class="mx-auto float-none white z-depth-1 py-2 px-2"
         >
           <mdb-card-body>
-            <h2 class="h2-responsive">
-              <strong>Material Design Edge Headers</strong>
-            </h2>
-            <p class="pb-4">Example of Material Design Form</p>
-
             <form>
-              <h5 class="h5-responsive">Basic Textbox</h5>
+              <p class="h4 text-center mb-4">Create an event</p>
 
-              <mdb-input label="Example label" />
+              <label for="defaultFormContactNameEx" class="grey-text"
+                >Event Name</label
+              >
+              <input
+                type="text"
+                id="defaultFormContactNameEx"
+                class="form-control"
+              />
 
-              <h5 class="h5-responsive">Textbox with icon</h5>
-              <mdb-input label="Your name" icon="user" />
+              <br />
 
-              <h5 class="h5-responsive">E-mail validation</h5>
-              <mdb-input type="email" label="Your email" icon="envelope" />
+              <label for="defaultFormContactEmailEx" class="grey-text"
+                >Your email</label
+              >
+              <input
+                type="email"
+                id="defaultFormContactEmailEx"
+                class="form-control"
+              />
 
-              <h5 class="h5-responsive">Textarea</h5>
+              <br />
+
               <mdb-input
-                type="textarea"
-                label="Textarea"
-                icon="pencil-alt"
-              ></mdb-input>
+                :value="handlePickersValue()"
+                @click.native="$refs.datePicker.open()"
+              />
+              <mdb-date-picker-2
+                ref="datePicker"
+                disable-input
+                v-model="datePickerValue"
+                @close="$refs.timePicker.open()"
+              />
+              <mdb-time-picker
+                ref="timePicker"
+                disable-input
+                v-model="timePickerValue"
+              />
 
-              <h5 class="h5-responsive">Disabled field</h5>
-              <mdb-input label="Example label" disabled />
-              <div class="text-xs-left">
-                <mdb-btn color="primary" @click.native.prevent="handleSubmit()"
-                  >Submit</mdb-btn
-                >
+              <br />
+
+              <label for="defaultFormContactSubjectEx" class="grey-text"
+                >Subject</label
+              >
+              <input
+                type="text"
+                id="defaultFormContactSubjectEx"
+                class="form-control"
+              />
+
+              <br />
+
+              <label for="defaultFormContactMessageEx" class="grey-text"
+                >Your message</label
+              >
+              <textarea
+                type="text"
+                id="defaultFormContactMessageEx"
+                class="form-control"
+                rows="3"
+              ></textarea>
+
+              <div class="text-center mt-4">
+                <mdb-btn class="btn btn-outline-warning" type="submit">
+                  Send<i class="far fa-paper-plane ml-2"></i>
+                </mdb-btn>
               </div>
             </form>
-
-            <p class="my-2"><small>Never submit your passwords here</small></p>
           </mdb-card-body>
         </mdb-col>
       </mdb-row>
@@ -57,8 +94,10 @@ import {
   mdbRow,
   mdbCol,
   mdbCardBody,
-  mdbInput,
   mdbBtn,
+  mdbDatePicker2,
+  mdbTimePicker,
+  mdbInput,
 } from "mdbvue";
 export default {
   name: "AdminPage",
@@ -69,12 +108,16 @@ export default {
     mdbRow,
     mdbCol,
     mdbCardBody,
-    mdbInput,
     mdbBtn,
+    mdbDatePicker2,
+    mdbTimePicker,
+    mdbInput,
   },
   data() {
     return {
       email: null,
+      datePickerValue: "",
+      timePickerValue: "",
     };
   },
   mounted() {
@@ -88,6 +131,14 @@ export default {
   methods: {
     getAdminData() {
       this.email = this.admin.email;
+    },
+    handlePickersValue() {
+      let output = "Pick date and time";
+      if (this.datePickerValue && this.timePickerValue)
+        output = `${this.datePickerValue}, ${this.timePickerValue}`;
+      else if (this.datePickerValue) output = this.datePickerValue;
+      else if (this.timePickerValue) output = this.timePickerValue;
+      return output;
     },
   },
 };

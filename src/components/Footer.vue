@@ -97,8 +97,10 @@
                     <mdb-nav-item
                       ><router-link to="/blog">Blog</router-link></mdb-nav-item
                     >
-                    <mdb-nav-item href="https://forum.fossnsbm.org/"
-                      >Forum</mdb-nav-item
+                    <mdb-nav-item
+                      ><router-link to="/forum"
+                        >Forum</router-link
+                      ></mdb-nav-item
                     >
                   </mdb-navbar-nav>
                 </div>
