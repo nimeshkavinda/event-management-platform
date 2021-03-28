@@ -73,7 +73,7 @@
               <mdb-view
                 :src="event.thumbnailUrl"
                 alt="Sample image for first version of blog listing"
-                style="border-radius: 0.5em; object-fit: cover; width: 100%; height: 400px;"
+                style="border-radius: 0.5em; object-fit: cover; width: 100%; height: 100%;"
                 class="img-fluid"
               >
                 <a><mdb-mask waves overlay="white-slight"/></a>
@@ -131,7 +131,13 @@
       <hr class="mx-5" />
     </mdb-container>
     <div>
-      <mdb-modal size="lg" :show="modal" @close="modal = false">
+      <mdb-modal
+        size="lg"
+        :show="modal"
+        @close="modal = false"
+        centered
+        scrollable
+      >
         <mdb-modal-header>
           <mdb-modal-title
             >RSVP for {{ event.name }}</mdb-modal-title
@@ -144,7 +150,7 @@
             height="500px"
             frameborder="0"
             allow="camera; microphone; autoplay; encrypted-media;"
-            src="https://bs1i1lwo3jj.typeform.com/to/I38CzJV3"
+            :src="event.rsvpUrl"
           ></iframe
         ></mdb-modal-body>
       </mdb-modal>
