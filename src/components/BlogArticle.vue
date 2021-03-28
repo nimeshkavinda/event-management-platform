@@ -1,22 +1,29 @@
 <template>
   <mdb-container class="text-left">
     <mdb-row class="mx-5 mt-5">
-      <mdb-col md="8">
+      <mdb-col md="9">
         <mdb-row>
           <mdb-col lg="1" md="2" class="mb-3">
             <img
               :src="blogArticle.primary_author.profile_image"
               class="rounded-circle"
-              height="36"
-              width="36"
+              height="32"
+              width="32"
               alt=""
               loading="lazy"
               style="object-fit: cover;"
             />
           </mdb-col>
           <mdb-col col="10">
-            <p class="h3 light-green-text font-weight-bold">
-              {{ blogArticle.primary_author.name }}
+            <p class="h4 grey-text font-weight-bold">
+              Posted by
+              <span class="light-green-text">{{
+                blogArticle.primary_author.name
+              }}</span>
+              on
+              <span class="light-green-text">{{
+                moment(blogArticle.published_at).format("LL")
+              }}</span>
             </p>
           </mdb-col>
         </mdb-row>

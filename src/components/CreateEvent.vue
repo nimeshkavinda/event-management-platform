@@ -27,16 +27,30 @@
                     class="form-control"
                     id="inputEventName"
                     placeholder="Hash Code"
+                    required
+                    v-model="eventName"
                   />
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputDate">Date</label>
-                    <input type="date" class="form-control" id="inputDate" />
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="inputDate"
+                      required
+                      v-model="eventDate"
+                    />
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputTime">Start Time</label>
-                    <input type="time" class="form-control" id="inputTime" />
+                    <input
+                      type="time"
+                      class="form-control"
+                      id="inputTime"
+                      required
+                      v-model="eventTime"
+                    />
                   </div>
                 </div>
                 <div class="form-group">
@@ -46,6 +60,8 @@
                     class="form-control"
                     id="inputVenue"
                     placeholder="FOC, C2-002, NSBM Green University"
+                    required
+                    v-model="eventVenue"
                   />
                 </div>
                 <div class="form-row">
@@ -56,6 +72,8 @@
                       class="form-control"
                       id="inputSpeaker"
                       placeholder="John Doe"
+                      required
+                      v-model="eventSpeaker"
                     />
                   </div>
                   <div class="form-group col-md-6">
@@ -65,6 +83,8 @@
                       class="form-control"
                       id="inputOrganizer"
                       placeholder="DevLab"
+                      required
+                      v-model="eventOrganizer"
                     />
                   </div>
                 </div>
@@ -74,7 +94,9 @@
                     <input
                       type="file"
                       class="form-control-file"
+                      accept="image/*"
                       id="fileSpeaker"
+                      required
                     />
                   </div>
                   <div class="form-group col-md-4">
@@ -82,7 +104,9 @@
                     <input
                       type="file"
                       class="form-control-file"
+                      accept="image/*"
                       id="fileOrganizer"
+                      required
                     />
                   </div>
                   <div class="form-group col-md-4">
@@ -90,7 +114,9 @@
                     <input
                       type="file"
                       class="form-control-file"
+                      accept="image/*"
                       id="fileThumb"
+                      required
                     />
                   </div>
                 </div>
@@ -99,7 +125,12 @@
                   <textarea
                     class="form-control"
                     id="inputDetails"
-                    rows="3"
+                    rows="5"
+                    minlength="100"
+                    maxlength="200"
+                    placeholder="Event description of minimum 100 characters"
+                    required
+                    v-model="eventDescription"
                   ></textarea>
                 </div>
                 <div class="form-group">
@@ -109,6 +140,8 @@
                     class="form-control"
                     id="inputUrl"
                     placeholder="https://developerplatform.typeform.com/to/Xc7NMh"
+                    required
+                    v-model="eventRsvpUrl"
                   />
                 </div>
                 <mdb-btn
@@ -150,5 +183,22 @@ export default {
     mdbBreadcrumbItem,
     mdbBtn,
   },
+  data() {
+    return {
+      event: {
+        name: "",
+        datetime: "",
+        venue: "",
+        description: "",
+        organizer: "",
+        speaker: "",
+        organizerPhotoUrl: "",
+        speakerPhotoUrl: "",
+        thumbnailUrl: "",
+        rsvpUrl: "",
+      },
+    };
+  },
+  methods: {},
 };
 </script>

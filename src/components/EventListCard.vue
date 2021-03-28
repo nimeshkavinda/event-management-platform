@@ -26,23 +26,20 @@
                   <h5 class="h5 font-weight-normal">
                     {{ event.description }}
                   </h5>
-                  <mdb-row class="mt-3">
-                    <mdb-col col="1">
-                      <img
-                        :src="event.speakerPhotoUrl"
-                        class="rounded-circle"
-                        height="26"
-                        width="26"
-                        alt=""
-                        loading="lazy"
-                        style="object-fit: cover;"
-                      />
-                    </mdb-col>
-                    <mdb-col col="10">
-                      <p class="card-text">
-                        {{ event.speaker }}
-                      </p>
-                    </mdb-col>
+                  <mdb-row class="mt-3 ml-1">
+                    <img
+                      :src="event.speakerPhotoUrl"
+                      class="rounded-circle mr-3"
+                      height="26"
+                      width="26"
+                      alt=""
+                      loading="lazy"
+                      style="object-fit: cover;"
+                    />
+
+                    <p class="card-text">
+                      {{ event.speaker }}
+                    </p>
                   </mdb-row>
                 </div>
               </mdb-col>
