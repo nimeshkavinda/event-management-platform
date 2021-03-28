@@ -99,13 +99,12 @@
                   ><strong>{{ event.organizer }}</strong></a
                 >
               </p>
-
               <mdb-btn
                 id="rsvpBtn"
-                type="button"
+                type="submit"
                 color="light-green mr-4"
                 style="border-radius:1em;"
-                @click="openTypeForm"
+                @click.native="modal = true"
                 >RSVP</mdb-btn
               >
 
@@ -131,6 +130,25 @@
       </mdb-container>
       <hr class="mx-5" />
     </mdb-container>
+    <div>
+      <mdb-modal size="lg" :show="modal" @close="modal = false">
+        <mdb-modal-header>
+          <mdb-modal-title
+            >RSVP for {{ event.name }}</mdb-modal-title
+          ></mdb-modal-header
+        >
+        <mdb-modal-body
+          ><iframe
+            id="typeform-full"
+            width="100%"
+            height="500px"
+            frameborder="0"
+            allow="camera; microphone; autoplay; encrypted-media;"
+            src="https://bs1i1lwo3jj.typeform.com/to/I38CzJV3"
+          ></iframe
+        ></mdb-modal-body>
+      </mdb-modal>
+    </div>
   </div>
 </template>
 
@@ -145,8 +163,12 @@ import {
   mdbMask,
   mdbView,
   mdbIcon,
+  mdbModal,
+  mdbModalHeader,
+  mdbModalTitle,
+  mdbModalBody,
 } from "mdbvue";
-import * as typeformEmbed from "@typeform/embed";
+// import * as typeformEmbed from "@typeform/embed";
 export default {
   name: "EventDetails",
   props: ["event"],
@@ -160,28 +182,32 @@ export default {
     mdbView,
     mdbMask,
     mdbIcon,
+    mdbModal,
+    mdbModalHeader,
+    mdbModalTitle,
+    mdbModalBody,
   },
-  methods: {
-    openTypeForm() {
-      const reference = typeformEmbed.makePopup(
-        "https://bs1i1lwo3jj.typeform.com/to/I38CzJV3", // NOTE: Replace with your typeform URL
-        {
-          mode: "popup",
-          autoClose: 3000,
-          hideHeaders: true,
-          hideFooters: true,
-          onSubmit: function() {
-            console.log("Typeform successfully submitted");
-          },
-        }
-      );
-
-      reference.open();
-
-      setTimeout(function() {
-        reference.close();
-      }, 10000); // NOTE: In this code, the typeform will automatically open, then automatically close 10 seconds later
-    },
+  data() {
+    return {
+      modal: false,
+    };
   },
+  // mounted() {
+  //   const embedElement = this.$refs.embeddedTypeform;
+
+  //   typeformEmbed.makeWidget(
+  //     embedElement,
+  //     "https://developerplatform.typeform.com/to/Xc7NMh",
+  //     {
+  //       hideHeaders: true,
+  //       hideFooter: true,
+  //       opacity: 75,
+  //       buttonText: "Take the survey!",
+  //       onSubmit: function() {
+  //         console.log("Typeform successfully submitted");
+  //       },
+  //     }
+  //   );
+  // },
 };
 </script>

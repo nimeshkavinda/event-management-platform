@@ -11,10 +11,10 @@
         >
           <mdb-card-body>
             <form>
-              <p class="h4 text-center mb-4">Write to us</p>
+              <p class="h4 text-center mb-4">Create an event</p>
 
               <label for="defaultFormContactNameEx" class="grey-text"
-                >Your name</label
+                >Event Name</label
               >
               <input
                 type="text"
