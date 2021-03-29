@@ -33,24 +33,21 @@
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="inputDate">Date</label>
-                    <input
+                    <label for="inputDate">Date & Start Time</label>
+                    <!-- <input
                       type="date"
                       class="form-control"
                       id="inputDate"
                       required
                       v-model="eventDate"
-                    />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputTime">Start Time</label>
-                    <input
-                      type="time"
+                    /> -->
+                    <datetime
+                      v-model="eventDateTime"
+                      type="datetime"
                       class="form-control"
-                      id="inputTime"
+                      id="inputDate"
                       required
-                      v-model="eventTime"
-                    />
+                    ></datetime>
                   </div>
                 </div>
                 <div class="form-group">
@@ -175,6 +172,8 @@ import {
   mdbBtn,
 } from "mdbvue";
 import axios from "axios";
+import { Datetime } from "vue-datetime";
+import "vue-datetime/dist/vue-datetime.css";
 export default {
   name: "CreateEvent",
   components: {
@@ -186,6 +185,7 @@ export default {
     mdbBreadcrumb,
     mdbBreadcrumbItem,
     mdbBtn,
+    datetime: Datetime,
   },
   data() {
     return {
@@ -208,6 +208,7 @@ export default {
       // (async () => {
       //   this.speakerPhotoUrl = await this.createBase64Image(speakerPhoto);
       // })();
+
       this.speakerPhotoUrl = await this.createBase64Image(
         speakerPhoto
       ).catch((e) => Error(e));
@@ -225,6 +226,13 @@ export default {
       );
     },
     createBase64Image(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+      });
+
       // const reader = new FileReader();
 
       // reader.onload = function(e) {
@@ -235,24 +243,15 @@ export default {
       //   console.log("Error: ", error);
       // };
 
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = (error) => reject(error);
-      });
-
       // return promise;
     },
     onSubmit() {
       const formData = new FormData();
       formData.append("avatar", this.FILE, this.FILE.name);
       formData.append("name", this.name);
-      axios
-        .post("http://localhost:4000/api/create-user", formData, {})
-        .then((res) => {
-          console.log(res);
-        });
+      axios.post("/api/create-event", formData, {}).then((res) => {
+        console.log(res);
+      });
     },
   },
 };
