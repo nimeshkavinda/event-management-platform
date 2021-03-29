@@ -19,7 +19,7 @@
           </mdb-breadcrumb>
           <mdb-card class="w-100 my-4">
             <mdb-card-body class="p-5">
-              <form>
+              <form @submit.prevent="onSubmit">
                 <div class="form-group">
                   <label for="inputEventName">Event Name</label>
                   <input
@@ -97,6 +97,7 @@
                       accept="image/*"
                       id="fileSpeaker"
                       required
+                      @change="onSpeakerPhotoUpload"
                     />
                   </div>
                   <div class="form-group col-md-4">
@@ -107,6 +108,7 @@
                       accept="image/*"
                       id="fileOrganizer"
                       required
+                      @change="onOrganizerPhotoUpload"
                     />
                   </div>
                   <div class="form-group col-md-4">
@@ -117,6 +119,7 @@
                       accept="image/*"
                       id="fileThumb"
                       required
+                      @change="onThumbnailUpload"
                     />
                   </div>
                 </div>
@@ -171,6 +174,7 @@ import {
   mdbBreadcrumbItem,
   mdbBtn,
 } from "mdbvue";
+import axios from "axios";
 export default {
   name: "CreateEvent",
   components: {
@@ -185,20 +189,71 @@ export default {
   },
   data() {
     return {
-      event: {
-        name: "",
-        datetime: "",
-        venue: "",
-        description: "",
-        organizer: "",
-        speaker: "",
-        organizerPhotoUrl: "",
-        speakerPhotoUrl: "",
-        thumbnailUrl: "",
-        rsvpUrl: "",
-      },
+      name: null,
+      datetime: null,
+      venue: null,
+      description: null,
+      organizer: null,
+      speaker: null,
+      organizerPhotoUrl: null,
+      speakerPhotoUrl: null,
+      thumbnailUrl: null,
+      rsvpUrl: null,
     };
   },
-  methods: {},
+  methods: {
+    async onSpeakerPhotoUpload(event) {
+      const speakerPhoto = event.target.files[0];
+
+      // (async () => {
+      //   this.speakerPhotoUrl = await this.createBase64Image(speakerPhoto);
+      // })();
+      this.speakerPhotoUrl = await this.createBase64Image(
+        speakerPhoto
+      ).catch((e) => Error(e));
+    },
+    async onOrganizerPhotoUpload(event) {
+      const organizerPhoto = event.target.files[0];
+      this.organizerPhotoUrl = await this.createBase64Image(
+        organizerPhoto
+      ).catch((e) => Error(e));
+    },
+    async onThumbnailUpload(event) {
+      const thumbnail = event.target.files[0];
+      this.thumbnailUrl = await this.createBase64Image(thumbnail).catch((e) =>
+        Error(e)
+      );
+    },
+    createBase64Image(file) {
+      // const reader = new FileReader();
+
+      // reader.onload = function(e) {
+      //   this.speakerPhotoUrl = e.target.result;
+      // };
+      // reader.readAsDataURL(file);
+      // reader.onerror = function(error) {
+      //   console.log("Error: ", error);
+      // };
+
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+      });
+
+      // return promise;
+    },
+    onSubmit() {
+      const formData = new FormData();
+      formData.append("avatar", this.FILE, this.FILE.name);
+      formData.append("name", this.name);
+      axios
+        .post("http://localhost:4000/api/create-user", formData, {})
+        .then((res) => {
+          console.log(res);
+        });
+    },
+  },
 };
 </script>
