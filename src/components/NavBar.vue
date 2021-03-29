@@ -7,14 +7,14 @@
       position="top"
       style="box-shadow: none!important;"
     >
-      <a href="https://fossnsbm.org/"
-        ><mdb-navbar-brand style="margin-right: 10%;">
+      <router-link to="/" style="margin-right: 8%;"
+        ><mdb-navbar-brand>
           <img
             src="https://firebasestorage.googleapis.com/v0/b/foss-rsvp.appspot.com/o/foss_nsbm2.png?alt=media&token=7d062d51-911f-4938-9c5c-73c0dee8c5ff"
             height="60"
             alt=""
           /> </mdb-navbar-brand
-      ></a>
+      ></router-link>
       <mdb-navbar-toggler>
         <mdb-navbar-nav center>
           <mdb-nav-item><router-link to="/">Home</router-link></mdb-nav-item>

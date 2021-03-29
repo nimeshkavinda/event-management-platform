@@ -37,7 +37,7 @@ export default {
   },
   data() {
     return {
-      topics: [],
+      categories: [],
     };
   },
   mounted() {
@@ -51,7 +51,7 @@ export default {
       },
     })
       .then((res) => res.json())
-      .then((data) => (this.topics = data.categories))
+      .then((data) => (this.categories = data.categories))
       .catch((err) => console.log(err.message));
   },
 };
