@@ -1,5 +1,5 @@
 <template>
-  <div id="nav">
+  <div id="nav" style="margin-bottom: 120px;">
     <mdb-navbar
       class="px-5 py-3"
       color="#ffffff white"
@@ -7,13 +7,14 @@
       position="top"
       style="box-shadow: none!important;"
     >
-      <mdb-navbar-brand href="https://fossnsbm.org/" style="margin-right: 10%;">
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/foss-rsvp.appspot.com/o/foss_nsbm2.png?alt=media&token=7d062d51-911f-4938-9c5c-73c0dee8c5ff"
-          height="60"
-          alt=""
-        />
-      </mdb-navbar-brand>
+      <router-link to="/" style="margin-right: 8%;"
+        ><mdb-navbar-brand>
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/foss-rsvp.appspot.com/o/foss_nsbm2.png?alt=media&token=7d062d51-911f-4938-9c5c-73c0dee8c5ff"
+            height="60"
+            alt=""
+          /> </mdb-navbar-brand
+      ></router-link>
       <mdb-navbar-toggler>
         <mdb-navbar-nav center>
           <mdb-nav-item><router-link to="/">Home</router-link></mdb-nav-item>

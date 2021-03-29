@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <NavBar :user="user" v-on:logoutUser="logout"></NavBar>
     <AdminPage :admin="admin" v-if="AdminPage"></AdminPage>
+    <NavBar :user="user" v-on:logoutUser="logout" v-if="IndexPage"></NavBar>
     <router-view :user="user" @logout="logout" />
-    <Footer></Footer>
+    <Footer v-if="IndexPage"></Footer>
   </div>
 </template>
 
@@ -44,6 +44,13 @@ export default {
         return true;
       } else {
         return false;
+      }
+    },
+    IndexPage() {
+      if (this.$route.path == "/admin") {
+        return false;
+      } else {
+        return true;
       }
     },
   },
