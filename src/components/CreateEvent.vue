@@ -21,6 +21,12 @@
             <mdb-card-body class="p-5">
               <form @submit.prevent="onSubmit">
                 <div class="form-group">
+                  <mdb-alert color="success" v-if="success">
+                    Event has been created
+                  </mdb-alert>
+                  <mdb-alert color="danger" v-if="error">
+                    Failed to created the event
+                  </mdb-alert>
                   <label for="inputEventName">Event Name</label>
                   <input
                     type="text"
@@ -170,6 +176,7 @@ import {
   mdbBreadcrumb,
   mdbBreadcrumbItem,
   mdbBtn,
+  mdbAlert,
 } from "mdbvue";
 import axios from "axios";
 import { Datetime } from "vue-datetime";
@@ -186,6 +193,7 @@ export default {
     mdbBreadcrumbItem,
     mdbBtn,
     datetime: Datetime,
+    mdbAlert,
   },
   data() {
     return {
@@ -205,6 +213,8 @@ export default {
         thumbnailUrl: null,
         rsvpUrl: null,
       },
+      error: null,
+      success: null,
     };
   },
   methods: {
@@ -258,10 +268,13 @@ export default {
       // axios.post("/api/create-event", formData, {}).then((res) => {
       // console.log(res);
       // });
-      console.log(this.event);
-      axios.post("api/events", this.event).then((result) => {
-        console.log(result);
-      });
+      axios
+        .post("api/events", this.event)
+        .then((result) => {
+          this.success = true;
+          console.log(result);
+        })
+        .catch(() => (this.error = true));
     },
   },
 };
