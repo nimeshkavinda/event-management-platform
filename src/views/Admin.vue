@@ -81,6 +81,7 @@
       <div class="mt-5 p-5">
         <Dashboard v-if="activeItem === 1"></Dashboard>
         <CreateEvent :admin="admin" v-if="activeItem === 2"></CreateEvent>
+        <Users></Users>
       </div>
     </main>
   </div>
@@ -105,6 +106,7 @@ import {
 // import firebase from "firebase";
 import CreateEvent from "../components/CreateEvent.vue";
 import Dashboard from "../components/Dashboard.vue";
+import Users from "../components/Users.vue";
 export default {
   name: "AdminTemplate",
   props: ["admin"],
@@ -123,6 +125,7 @@ export default {
     mdbDropdownItem,
     CreateEvent,
     Dashboard,
+    Users,
   },
   data() {
     return {

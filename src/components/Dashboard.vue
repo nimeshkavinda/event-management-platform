@@ -7,7 +7,7 @@
             Admin Dashboard
           </p>
           <p class="h1 font-weight-bold">
-            Monitor FOSS Community NSBM Event Platform
+            Monitor FOSS Event Platform
           </p>
         </mdb-col>
       </mdb-row>
@@ -21,7 +21,7 @@
           ><mdb-tbl>
             <mdb-tbl-head color="black" textWhite>
               <tr>
-                <th>#</th>
+                <th>Event ID</th>
                 <th>Event Name</th>
                 <th>DateTime</th>
                 <th>Venue</th>
@@ -31,28 +31,18 @@
             </mdb-tbl-head>
 
             <mdb-tbl-body>
-              <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th>2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th>3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+              <tr v-for="event in events" :key="event.id">
+                <th>{{ event.id }}</th>
+                <td>{{ event.name }}</td>
+                <td>{{ moment(event.datetime).format("LLLL") }}</td>
+                <td>{{ event.venue }}</td>
+                <td>{{ event.speaker }}</td>
+                <td>{{ event.organizer }}</td>
               </tr>
             </mdb-tbl-body>
           </mdb-tbl>
 
-          <mdb-tbl>
+          <!-- <mdb-tbl>
             <mdb-tbl-head color="grey">
               <tr>
                 <th>#</th>
@@ -84,8 +74,8 @@
                 <td>@twitter</td>
               </tr>
             </mdb-tbl-body>
-          </mdb-tbl></mdb-col
-        >
+          </mdb-tbl> -->
+        </mdb-col>
       </mdb-row>
     </mdb-container>
   </div>
@@ -102,7 +92,7 @@ import {
   mdbBreadcrumb,
   mdbBreadcrumbItem,
 } from "mdbvue";
-
+import axios from "axios";
 export default {
   name: "Dashboard",
   components: {
@@ -114,6 +104,24 @@ export default {
     mdbTblBody,
     mdbBreadcrumb,
     mdbBreadcrumbItem,
+  },
+  data() {
+    return {
+      events: [],
+    };
+  },
+  created() {
+    this.getEvents();
+  },
+  methods: {
+    getEvents: function() {
+      axios
+        .get("/api/events")
+        .then((response) => (this.events = response.data))
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
   },
 };
 </script>
