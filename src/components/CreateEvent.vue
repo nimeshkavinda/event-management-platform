@@ -28,7 +28,7 @@
                     id="inputEventName"
                     placeholder="Hash Code"
                     required
-                    v-model="eventName"
+                    v-model="event.name"
                   />
                 </div>
                 <div class="form-row">
@@ -42,7 +42,7 @@
                       v-model="eventDate"
                     /> -->
                     <datetime
-                      v-model="eventDateTime"
+                      v-model="event.datetime"
                       type="datetime"
                       class="form-control"
                       id="inputDate"
@@ -58,7 +58,7 @@
                     id="inputVenue"
                     placeholder="FOC, C2-002, NSBM Green University"
                     required
-                    v-model="eventVenue"
+                    v-model="event.venue"
                   />
                 </div>
                 <div class="form-row">
@@ -70,7 +70,7 @@
                       id="inputSpeaker"
                       placeholder="John Doe"
                       required
-                      v-model="eventSpeaker"
+                      v-model="event.speaker"
                     />
                   </div>
                   <div class="form-group col-md-6">
@@ -81,7 +81,7 @@
                       id="inputOrganizer"
                       placeholder="DevLab"
                       required
-                      v-model="eventOrganizer"
+                      v-model="event.organizer"
                     />
                   </div>
                 </div>
@@ -126,11 +126,11 @@
                     class="form-control"
                     id="inputDetails"
                     rows="5"
-                    minlength="100"
+                    minlength="150"
                     maxlength="200"
                     placeholder="Event description of minimum 100 characters"
                     required
-                    v-model="eventDescription"
+                    v-model="event.description"
                   ></textarea>
                 </div>
                 <div class="form-group">
@@ -141,7 +141,7 @@
                     id="inputUrl"
                     placeholder="https://developerplatform.typeform.com/to/Xc7NMh"
                     required
-                    v-model="eventRsvpUrl"
+                    v-model="event.rsvpUrl"
                   />
                 </div>
                 <mdb-btn
@@ -189,16 +189,22 @@ export default {
   },
   data() {
     return {
-      name: null,
-      datetime: null,
-      venue: null,
-      description: null,
-      organizer: null,
-      speaker: null,
-      organizerPhotoUrl: null,
-      speakerPhotoUrl: null,
-      thumbnailUrl: null,
-      rsvpUrl: null,
+      // datetime: null,
+      // organizerPhotoUrl: null,
+      // speakerPhotoUrl: null,
+      // thumbnailUrl: null,
+      event: {
+        name: null,
+        datetime: null,
+        venue: null,
+        description: null,
+        organizer: null,
+        speaker: null,
+        organizerPhotoUrl: null,
+        speakerPhotoUrl: null,
+        thumbnailUrl: null,
+        rsvpUrl: null,
+      },
     };
   },
   methods: {
@@ -209,21 +215,21 @@ export default {
       //   this.speakerPhotoUrl = await this.createBase64Image(speakerPhoto);
       // })();
 
-      this.speakerPhotoUrl = await this.createBase64Image(
+      this.event.speakerPhotoUrl = await this.createBase64Image(
         speakerPhoto
       ).catch((e) => Error(e));
     },
     async onOrganizerPhotoUpload(event) {
       const organizerPhoto = event.target.files[0];
-      this.organizerPhotoUrl = await this.createBase64Image(
+      this.event.organizerPhotoUrl = await this.createBase64Image(
         organizerPhoto
       ).catch((e) => Error(e));
     },
     async onThumbnailUpload(event) {
       const thumbnail = event.target.files[0];
-      this.thumbnailUrl = await this.createBase64Image(thumbnail).catch((e) =>
-        Error(e)
-      );
+      this.event.thumbnailUrl = await this.createBase64Image(
+        thumbnail
+      ).catch((e) => Error(e));
     },
     createBase64Image(file) {
       return new Promise((resolve, reject) => {
@@ -246,11 +252,15 @@ export default {
       // return promise;
     },
     onSubmit() {
-      const formData = new FormData();
-      formData.append("avatar", this.FILE, this.FILE.name);
-      formData.append("name", this.name);
-      axios.post("/api/create-event", formData, {}).then((res) => {
-        console.log(res);
+      // const formData = new FormData();
+      // formData.append("avatar", this.FILE, this.FILE.name);
+      // formData.append("name", this.name);
+      // axios.post("/api/create-event", formData, {}).then((res) => {
+      // console.log(res);
+      // });
+      console.log(this.event);
+      axios.post("api/events", this.event).then((result) => {
+        console.log(result);
       });
     },
   },
