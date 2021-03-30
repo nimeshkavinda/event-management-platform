@@ -15,7 +15,7 @@
           ></mdb-col
         ></mdb-row
       ><mdb-container fluid
-        ><mdb-row class="mt-4 d-flex justify-content-center"
+        ><mdb-row class="mt-4 mx-2 d-flex justify-content-start"
           ><EventCard
             v-for="event in events.slice(0, 3)"
             :key="event.id"

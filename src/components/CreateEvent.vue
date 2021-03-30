@@ -12,8 +12,8 @@
         </mdb-col>
       </mdb-row>
       <mdb-row>
-        <mdb-col md="9" class="mx-5">
-          <mdb-breadcrumb style="background-color: #fafafa">
+        <mdb-col md="11" class="mx-5">
+          <mdb-breadcrumb style="background-color: #fafafa" class="mt-3">
             <mdb-breadcrumb-item><a href="#">Admin</a></mdb-breadcrumb-item>
             <mdb-breadcrumb-item active>Create event</mdb-breadcrumb-item>
           </mdb-breadcrumb>
@@ -21,6 +21,12 @@
             <mdb-card-body class="p-5">
               <form @submit.prevent="onSubmit">
                 <div class="form-group">
+                  <mdb-alert color="success" v-if="success">
+                    Event has been created
+                  </mdb-alert>
+                  <mdb-alert color="danger" v-if="error">
+                    Failed to created the event
+                  </mdb-alert>
                   <label for="inputEventName">Event Name</label>
                   <input
                     type="text"
@@ -46,6 +52,7 @@
                       type="datetime"
                       class="form-control"
                       id="inputDate"
+                      placeholder="Mar 31, 2021 9:00 AM"
                       required
                     ></datetime>
                   </div>
@@ -126,9 +133,9 @@
                     class="form-control"
                     id="inputDetails"
                     rows="5"
-                    minlength="150"
-                    maxlength="200"
-                    placeholder="Event description of minimum 100 characters"
+                    minlength="250"
+                    maxlength="260"
+                    placeholder="Event description should contain minimum of 240 characters"
                     required
                     v-model="event.description"
                   ></textarea>
@@ -170,12 +177,15 @@ import {
   mdbBreadcrumb,
   mdbBreadcrumbItem,
   mdbBtn,
+  mdbAlert,
 } from "mdbvue";
 import axios from "axios";
+import uniqid from "uniqid";
 import { Datetime } from "vue-datetime";
 import "vue-datetime/dist/vue-datetime.css";
 export default {
   name: "CreateEvent",
+  porps: ["admin"],
   components: {
     mdbContainer,
     mdbRow,
@@ -186,6 +196,7 @@ export default {
     mdbBreadcrumbItem,
     mdbBtn,
     datetime: Datetime,
+    mdbAlert,
   },
   data() {
     return {
@@ -194,6 +205,7 @@ export default {
       // speakerPhotoUrl: null,
       // thumbnailUrl: null,
       event: {
+        id: null,
         name: null,
         datetime: null,
         venue: null,
@@ -205,6 +217,8 @@ export default {
         thumbnailUrl: null,
         rsvpUrl: null,
       },
+      error: null,
+      success: null,
     };
   },
   methods: {
@@ -258,10 +272,14 @@ export default {
       // axios.post("/api/create-event", formData, {}).then((res) => {
       // console.log(res);
       // });
-      console.log(this.event);
-      axios.post("api/events", this.event).then((result) => {
-        console.log(result);
-      });
+      this.event.id = uniqid();
+      axios
+        .post("api/events", this.event)
+        .then((result) => {
+          this.success = true;
+          console.log(result);
+        })
+        .catch(() => (this.error = true));
     },
   },
 };

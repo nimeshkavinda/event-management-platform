@@ -30,6 +30,9 @@
             :key="event.id"
             :featuredEvent="event"
           ></FeaturedEventCard>
+          <!-- <router-link to="/events" class="ml-lg-2 font-weight-bold"
+            >Explore Events</router-link
+          > -->
         </mdb-col>
         <mdb-col lg="4" class="mb-5">
           <p class="h5 mb-4 ml-4 light-green-text font-weight-bold">
@@ -42,7 +45,7 @@
               :post="post"
             ></ArticleCard> </mdb-col
           ><router-link to="/blog" class="ml-lg-2 font-weight-bold"
-            >Explore More</router-link
+            >Explore Articles</router-link
           >
         </mdb-col>
       </mdb-row>
