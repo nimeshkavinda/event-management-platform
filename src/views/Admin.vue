@@ -2,29 +2,12 @@
   <div class="flexible-content">
     <!--Navbar-->
     <mdb-navbar class="flexible-navbar white" light position="top" scrolling>
-      <mdb-navbar-brand href="https://mdbootstrap.com/docs/vue/" target="_blank"
-        >MDB</mdb-navbar-brand
+      <mdb-navbar-brand class="font-weight-normal"
+        >Admin Panel</mdb-navbar-brand
       >
       <mdb-navbar-toggler>
         <mdb-navbar-nav left>
-          <mdb-nav-item to="/" waves-fixed active class="active"
-            >Home</mdb-nav-item
-          >
-          <mdb-nav-item
-            href="https://mdbootstrap.com/docs/vue/getting-started/quick-start/"
-            waves-fixed
-            >About MDB</mdb-nav-item
-          >
-          <mdb-nav-item
-            href="https://mdbootstrap.com/docs/vue/getting-started/download/"
-            waves-fixed
-            >Free download</mdb-nav-item
-          >
-          <mdb-nav-item
-            href="https://mdbootstrap.com/education/bootstrap/"
-            waves-fixed
-            >Free tutorials</mdb-nav-item
-          >
+          <mdb-nav-item to="/" waves-fixed>Go Back</mdb-nav-item>
         </mdb-navbar-nav>
         <mdb-navbar-nav right>
           <mdb-dropdown tag="li" class="nav-item">
@@ -66,29 +49,29 @@
           src="https://firebasestorage.googleapis.com/v0/b/foss-rsvp.appspot.com/o/foss_nsbm2.png?alt=media&token=7d062d51-911f-4938-9c5c-73c0dee8c5ff"
       /></a>
       <mdb-list-group class="list-group-flush">
-        <router-link to="/dashboard" @click.native="activeItem = 1">
+        <router-link to="/admin" @click.native="activeItem = 1">
           <mdb-list-group-item
             :action="true"
             :class="activeItem === 1 && 'active'"
             ><mdb-icon
-              icon="chart-pie"
+              icon="columns"
               class="mr-3"
             />Dashboard</mdb-list-group-item
           >
         </router-link>
-        <router-link to="/admin/create" @click.native="activeItem = 2">
+        <router-link to="/admin" @click.native="activeItem = 2">
           <mdb-list-group-item
             :action="true"
             :class="activeItem === 2 && 'active'"
-            ><mdb-icon icon="user" class="mr-3" />Create an
+            ><mdb-icon icon="calendar-plus" class="mr-3" />Create an
             event</mdb-list-group-item
           >
         </router-link>
-        <router-link to="/maps" @click.native="activeItem = 3">
+        <router-link to="/admin" @click.native="activeItem = 3">
           <mdb-list-group-item
             :action="true"
-            :class="activeItem === 4 && 'active'"
-            ><mdb-icon icon="map" class="mr-3" />Users</mdb-list-group-item
+            :class="activeItem === 3 && 'active'"
+            ><mdb-icon icon="users" class="mr-3" />Users</mdb-list-group-item
           >
         </router-link>
       </mdb-list-group>
@@ -96,7 +79,8 @@
     <!-- /Sidebar  -->
     <main>
       <div class="mt-5 p-5">
-        <CreateEvent :admin="admin"></CreateEvent>
+        <Dashboard v-if="activeItem === 1"></Dashboard>
+        <CreateEvent :admin="admin" v-if="activeItem === 2"></CreateEvent>
       </div>
     </main>
   </div>
@@ -120,6 +104,7 @@ import {
 } from "mdbvue";
 // import firebase from "firebase";
 import CreateEvent from "../components/CreateEvent.vue";
+import Dashboard from "../components/Dashboard.vue";
 export default {
   name: "AdminTemplate",
   props: ["admin"],
@@ -137,6 +122,7 @@ export default {
     mdbDropdownMenu,
     mdbDropdownItem,
     CreateEvent,
+    Dashboard,
   },
   data() {
     return {

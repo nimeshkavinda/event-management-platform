@@ -12,8 +12,8 @@
         </mdb-col>
       </mdb-row>
       <mdb-row>
-        <mdb-col md="9" class="mx-5">
-          <mdb-breadcrumb style="background-color: #fafafa">
+        <mdb-col md="11" class="mx-5">
+          <mdb-breadcrumb style="background-color: #fafafa" class="mt-3">
             <mdb-breadcrumb-item><a href="#">Admin</a></mdb-breadcrumb-item>
             <mdb-breadcrumb-item active>Create event</mdb-breadcrumb-item>
           </mdb-breadcrumb>
@@ -180,6 +180,7 @@ import {
   mdbAlert,
 } from "mdbvue";
 import axios from "axios";
+import uniqid from "uniqid";
 import { Datetime } from "vue-datetime";
 import "vue-datetime/dist/vue-datetime.css";
 export default {
@@ -204,6 +205,7 @@ export default {
       // speakerPhotoUrl: null,
       // thumbnailUrl: null,
       event: {
+        id: null,
         name: null,
         datetime: null,
         venue: null,
@@ -270,6 +272,7 @@ export default {
       // axios.post("/api/create-event", formData, {}).then((res) => {
       // console.log(res);
       // });
+      this.event.id = uniqid();
       axios
         .post("api/events", this.event)
         .then((result) => {
