@@ -27,26 +27,32 @@
           >
         </mdb-navbar-nav>
         <mdb-navbar-nav right>
-          <mdb-nav-item href="#!" waves-fixed
-            ><mdb-icon fab class="text-black" icon="facebook-square"
-          /></mdb-nav-item>
-          <mdb-nav-item href="#!" waves-fixed
-            ><mdb-icon fab icon="twitter"
-          /></mdb-nav-item>
-          <mdb-nav-item
-            href="https://github.com/mdbootstrap/bootstrap-material-design"
-            waves-fixed
-            class="border border-light rounded mr-1"
-            target="_blank"
-            ><mdb-icon fab icon="github" class="mr-2" />MDB GitHub
-          </mdb-nav-item>
-          <mdb-nav-item
-            href="https://mdbootstrap.com/products/vue-ui-kit/"
-            waves-fixed
-            class="border border-light rounded"
-            target="_blank"
-            ><mdb-icon icon="gem" far class="mr-2" />Go Pro
-          </mdb-nav-item>
+          <mdb-dropdown tag="li" class="nav-item">
+            <mdb-dropdown-toggle tag="a" navLink slot="toggle" waves-fixed
+              ><mdb-avatar class="mx-auto white">
+                <img
+                  v-if="this.admin.photoURL"
+                  :src="this.admin.photoURL"
+                  class="rounded-circle mr-lg-2"
+                  width="26"
+                />
+                <img
+                  v-else
+                  src="http://cdn.onlinewebfonts.com/svg/img_258083.png"
+                  class="rounded-circle mr-lg-2"
+                  width="26"
+                /> </mdb-avatar
+              >{{ this.admin.displayName }}</mdb-dropdown-toggle
+            >
+            <mdb-dropdown-menu>
+              <mdb-dropdown-item>
+                <router-link to="/profile">Profile</router-link>
+              </mdb-dropdown-item>
+              <mdb-dropdown-item @click="logoutUser"
+                ><a role="button">Log out</a></mdb-dropdown-item
+              >
+            </mdb-dropdown-menu>
+          </mdb-dropdown>
         </mdb-navbar-nav>
       </mdb-navbar-toggler>
     </mdb-navbar>
@@ -56,6 +62,7 @@
       <a class="logo-wrapper"
         ><img
           alt=""
+          class="img-fluid p-5"
           src="https://firebasestorage.googleapis.com/v0/b/foss-rsvp.appspot.com/o/foss_nsbm2.png?alt=media&token=7d062d51-911f-4938-9c5c-73c0dee8c5ff"
       /></a>
       <mdb-list-group class="list-group-flush">
@@ -89,7 +96,7 @@
     <!-- /Sidebar  -->
     <main>
       <div class="mt-5 p-5">
-        <CreateEvent></CreateEvent>
+        <CreateEvent :admin="admin"></CreateEvent>
       </div>
     </main>
   </div>
@@ -106,10 +113,16 @@ import {
   mdbListGroup,
   mdbListGroupItem,
   waves,
+  mdbDropdown,
+  mdbDropdownToggle,
+  mdbDropdownMenu,
+  mdbDropdownItem,
 } from "mdbvue";
+// import firebase from "firebase";
 import CreateEvent from "../components/CreateEvent.vue";
 export default {
   name: "AdminTemplate",
+  props: ["admin"],
   components: {
     mdbNavbar,
     mdbNavbarBrand,
@@ -119,12 +132,27 @@ export default {
     mdbListGroup,
     mdbListGroupItem,
     mdbIcon,
+    mdbDropdown,
+    mdbDropdownToggle,
+    mdbDropdownMenu,
+    mdbDropdownItem,
     CreateEvent,
   },
   data() {
     return {
       activeItem: 1,
     };
+  },
+  methods: {
+    // logout() {
+    //   firebase
+    //     .auth()
+    //     .signOut()
+    //     .then(() => {
+    //       this.user = null;
+    //       this.$router.push("/");
+    //     });
+    // },
   },
   beforeMount() {
     this.activeItem = this.$route.matched[0].props.default.page;

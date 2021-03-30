@@ -52,6 +52,7 @@
                       type="datetime"
                       class="form-control"
                       id="inputDate"
+                      placeholder="Mar 31, 2021 9:00 AM"
                       required
                     ></datetime>
                   </div>
@@ -132,9 +133,9 @@
                     class="form-control"
                     id="inputDetails"
                     rows="5"
-                    minlength="150"
-                    maxlength="200"
-                    placeholder="Event description of minimum 100 characters"
+                    minlength="250"
+                    maxlength="260"
+                    placeholder="Event description should contain minimum of 240 characters"
                     required
                     v-model="event.description"
                   ></textarea>
@@ -183,6 +184,7 @@ import { Datetime } from "vue-datetime";
 import "vue-datetime/dist/vue-datetime.css";
 export default {
   name: "CreateEvent",
+  porps: ["admin"],
   components: {
     mdbContainer,
     mdbRow,
