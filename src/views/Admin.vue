@@ -45,8 +45,8 @@
       <a class="logo-wrapper"
         ><img
           alt=""
-          class="img-fluid p-5"
-          src="https://firebasestorage.googleapis.com/v0/b/foss-rsvp.appspot.com/o/foss_nsbm2.png?alt=media&token=7d062d51-911f-4938-9c5c-73c0dee8c5ff"
+          class="img-fluid"
+          src="https://firebasestorage.googleapis.com/v0/b/foss-rsvp.appspot.com/o/fossLogoSmall.png?alt=media&token=8e5e54c2-3f15-4f52-a465-2841e47afc5f"
       /></a>
       <mdb-list-group class="list-group-flush">
         <router-link to="/admin" @click.native="activeItem = 1">
@@ -63,15 +63,23 @@
           <mdb-list-group-item
             :action="true"
             :class="activeItem === 2 && 'active'"
-            ><mdb-icon icon="calendar-plus" class="mr-3" />Create an
-            event</mdb-list-group-item
+            ><mdb-icon icon="users" class="mr-3" />Users</mdb-list-group-item
           >
         </router-link>
         <router-link to="/admin" @click.native="activeItem = 3">
           <mdb-list-group-item
             :action="true"
             :class="activeItem === 3 && 'active'"
-            ><mdb-icon icon="users" class="mr-3" />Users</mdb-list-group-item
+            ><mdb-icon icon="calendar-plus" class="mr-3" />Create an
+            event</mdb-list-group-item
+          >
+        </router-link>
+        <router-link to="/admin" @click.native="activeItem = 4">
+          <mdb-list-group-item
+            :action="true"
+            :class="activeItem === 4 && 'active'"
+            ><mdb-icon icon="calendar-check" class="mr-3" />Update an
+            event</mdb-list-group-item
           >
         </router-link>
       </mdb-list-group>
@@ -80,8 +88,9 @@
     <main>
       <div class="mt-5 p-5">
         <Dashboard v-if="activeItem === 1"></Dashboard>
-        <CreateEvent :admin="admin" v-if="activeItem === 2"></CreateEvent>
-        <Users></Users>
+        <Users v-if="activeItem === 2"></Users>
+        <CreateEvent :admin="admin" v-if="activeItem === 3"></CreateEvent>
+        <UpdateEvent v-if="activeItem === 4"></UpdateEvent>
       </div>
     </main>
   </div>
@@ -107,6 +116,7 @@ import {
 import CreateEvent from "../components/CreateEvent.vue";
 import Dashboard from "../components/Dashboard.vue";
 import Users from "../components/Users.vue";
+import UpdateEvent from "../components/UpdateEvent.vue";
 export default {
   name: "AdminTemplate",
   props: ["admin"],
@@ -126,6 +136,7 @@ export default {
     CreateEvent,
     Dashboard,
     Users,
+    UpdateEvent,
   },
   data() {
     return {

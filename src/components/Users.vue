@@ -15,9 +15,35 @@
         <mdb-col md="11" class="mx-5"
           ><mdb-breadcrumb style="background-color: #fafafa" class="mt-3">
             <mdb-breadcrumb-item><a href="#">Admin</a></mdb-breadcrumb-item>
-            <mdb-breadcrumb-item active>Users</mdb-breadcrumb-item>
-          </mdb-breadcrumb></mdb-col
-        >
+            <mdb-breadcrumb-item active
+              >Users</mdb-breadcrumb-item
+            > </mdb-breadcrumb
+          ><mdb-tbl>
+            <mdb-tbl-head color="black" textWhite>
+              <tr>
+                <!-- <th>Event ID</th> -->
+                <th>Event Name</th>
+                <th>DateTime</th>
+                <th>Venue</th>
+                <th>Speaker</th>
+                <th>Organizer</th>
+                <th>Actions</th>
+              </tr>
+            </mdb-tbl-head>
+
+            <mdb-tbl-body>
+              <tr>
+                <!-- <th>{{ event.id }}</th> -->
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Delete User</td>
+              </tr>
+            </mdb-tbl-body>
+          </mdb-tbl>
+        </mdb-col>
       </mdb-row>
     </mdb-container>
   </div>
@@ -30,6 +56,9 @@ import {
   mdbCol,
   mdbBreadcrumb,
   mdbBreadcrumbItem,
+  mdbTbl,
+  mdbTblHead,
+  mdbTblBody,
 } from "mdbvue";
 export default {
   name: "Users",
@@ -39,6 +68,9 @@ export default {
     mdbCol,
     mdbBreadcrumb,
     mdbBreadcrumbItem,
+    mdbTbl,
+    mdbTblHead,
+    mdbTblBody,
   },
 };
 </script>

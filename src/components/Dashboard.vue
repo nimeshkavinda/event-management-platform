@@ -21,23 +21,28 @@
           ><mdb-tbl>
             <mdb-tbl-head color="black" textWhite>
               <tr>
-                <th>Event ID</th>
+                <!-- <th>Event ID</th> -->
                 <th>Event Name</th>
                 <th>DateTime</th>
                 <th>Venue</th>
                 <th>Speaker</th>
                 <th>Organizer</th>
+                <th>Actions</th>
               </tr>
             </mdb-tbl-head>
 
             <mdb-tbl-body>
               <tr v-for="event in events" :key="event.id">
-                <th>{{ event.id }}</th>
+                <!-- <th>{{ event.id }}</th> -->
                 <td>{{ event.name }}</td>
                 <td>{{ moment(event.datetime).format("LLLL") }}</td>
                 <td>{{ event.venue }}</td>
                 <td>{{ event.speaker }}</td>
                 <td>{{ event.organizer }}</td>
+                <td>
+                  Update |
+                  <a role="button" @click="deleteEvents(event.id);getEvents();">Delete</a>
+                </td>
               </tr>
             </mdb-tbl-body>
           </mdb-tbl>
@@ -121,6 +126,10 @@ export default {
         .catch(function(error) {
           console.log(error);
         });
+    },
+    async deleteEvents(eventId) {
+      const result = await axios.delete(`api/events/${eventId}`);
+      this.events = result.data();
     },
   },
 };
