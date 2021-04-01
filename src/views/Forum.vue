@@ -14,13 +14,8 @@
       </mdb-row>
       <mdb-row>
         <mdb-col md="12">
-          <mdb-container fluid>
-            <EventListCard
-              v-for="event in events"
-              :key="event.name"
-              :event="event"
-            ></EventListCard> </mdb-container
-        ></mdb-col>
+          <mdb-container fluid> {{ this.categories }} </mdb-container></mdb-col
+        >
       </mdb-row>
     </mdb-container>
   </div>
@@ -28,6 +23,7 @@
 
 <script>
 import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
+// import axios from "axios";
 export default {
   name: "ForumPage",
   components: {
@@ -45,14 +41,20 @@ export default {
       method: "GET",
       headers: {
         Accept: "application/json",
-        Host: "https://forum.fossnsbm.org",
-        Origin: "http://localhost:8080/forum",
-        "Access-Control-Allow-Origin": "*",
+        // Host: "https://forum.fossnsbm.org",
+        // Origin: "http://localhost:8080/forum",
+        // "Access-Control-Allow-Origin": "*",
+        // mode: "no-cors",
       },
     })
       .then((res) => res.json())
-      .then((data) => (this.categories = data.categories))
+      .then((data) => (this.categories = data.category_list.categories))
+      // .then(()=>(console.log(this.categories)))
       .catch((err) => console.log(err.message));
+    // axios.get("https://forum.fossnsbm.org/categories.json").then((response) => {
+    //   (this.categories = response.data).catch((err) => console.log(err));
+    // });
+    // console.log(this.categories);
   },
 };
 </script>

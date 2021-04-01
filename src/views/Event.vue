@@ -52,7 +52,7 @@ export default {
   methods: {
     getEventData: function() {
       axios
-        .get("/api/events/${this.$route.params.id}")
+        .get(`/api/events/${this.$route.params.id}`)
         .then((response) => (this.event = response.data))
         .catch(function(error) {
           console.log(error);
