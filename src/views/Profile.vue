@@ -66,27 +66,44 @@
                 </mdb-col>
               </mdb-row>
 
-              <mdb-btn color="light-green" style="border-radius:1em;"
+              <mdb-btn color="light-green mr-3" style="border-radius:1em;"
                 >Edit Profile</mdb-btn
               >
+              <a @click="deleteProfile">Delete Profile</a>
             </mdb-col>
           </mdb-row>
         </mdb-jumbotron>
       </mdb-row>
-      <mdb-row class="mx-5">
-        <mdb-col md="5" class="mx-5">
-          <p class="h3 blue-text font-weight-bold">
+      <mdb-row class="mx-5 mt-5">
+        <mdb-col md="11"
+          ><p class="h3 blue-text font-weight-bold">
             Registered Events
-          </p>
-        </mdb-col>
-      </mdb-row>
-      <mdb-row class="mx-5">
-        <mdb-col lg="6" class="mx-5">
-          <p class="h3 blue-text font-weight-bold">
+          </p></mdb-col
+        ><mdb-col md="1"
+          ><router-link to="/allevents"
+            ><p class="h5 blue-text font-weight-bold">
+              See All
+            </p></router-link
+          ></mdb-col
+        ></mdb-row
+      ><mdb-container fluid
+        ><mdb-row class="mt-4 mx-2 d-flex justify-content-start"></mdb-row
+      ></mdb-container>
+      <mdb-row class="mx-5 mt-5 d-flex justify-content-between">
+        <mdb-col md="10"
+          ><p class="h3 blue-text font-weight-bold">
             Attended Events
-          </p>
-        </mdb-col>
-      </mdb-row>
+          </p></mdb-col
+        ><mdb-col md="1"
+          ><router-link to="/allevents"
+            ><p class="h5 blue-text font-weight-bold">
+              See All
+            </p></router-link
+          ></mdb-col
+        ></mdb-row
+      ><mdb-container fluid
+        ><mdb-row class="mt-4 mx-2 d-flex justify-content-start"></mdb-row
+      ></mdb-container>
     </mdb-container>
   </div>
 </template>

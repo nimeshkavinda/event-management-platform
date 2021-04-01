@@ -12,50 +12,29 @@
         </mdb-col>
       </mdb-row>
       <mdb-row>
-        <mdb-col md="11" class="mx-5">
-          <mdb-breadcrumb style="background-color: #fafafa" class="mt-3">
-            <mdb-breadcrumb-item><a href="#">Admin</a></mdb-breadcrumb-item>
-            <mdb-breadcrumb-item active>Update event</mdb-breadcrumb-item>
-          </mdb-breadcrumb>
-          <mdb-card class="w-100 my-4">
-            <mdb-card-body class="p-5"> </mdb-card-body>
-          </mdb-card>
-        </mdb-col>
+        <UpdateEventForm
+          v-on:updateEvent="updateEvent($event)"
+        ></UpdateEventForm>
       </mdb-row>
     </mdb-container>
   </div>
 </template>
 
 <script>
-import {
-  mdbContainer,
-  mdbRow,
-  mdbCol,
-  mdbCard,
-  mdbCardBody,
-  mdbBreadcrumb,
-  mdbBreadcrumbItem,
-  //   mdbBtn,
-  //   mdbAlert,
-} from "mdbvue";
+import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
+import UpdateEventForm from "../components/UpdateEventForm.vue";
 // import axios from "axios";
 // import uniqid from "uniqid";
 // import { Datetime } from "vue-datetime";
 // import "vue-datetime/dist/vue-datetime.css";
 export default {
   name: "UpdateEvent",
-  porps: ["admin"],
+  porps: ["selectedEvent"],
   components: {
     mdbContainer,
     mdbRow,
     mdbCol,
-    mdbCard,
-    mdbCardBody,
-    mdbBreadcrumb,
-    mdbBreadcrumbItem,
-    // mdbBtn,
-    // datetime: Datetime,
-    // mdbAlert,
+    UpdateEventForm,
   },
 };
 </script>

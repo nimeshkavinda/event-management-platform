@@ -40,8 +40,18 @@
                 <td>{{ event.speaker }}</td>
                 <td>{{ event.organizer }}</td>
                 <td>
-                  Update |
-                  <a role="button" @click="deleteEvents(event.id);getEvents();">Delete</a>
+                  <a role="button" v-on:click="$emit('updateEvent', event)"
+                    >Update</a
+                  >
+                  |
+                  <a
+                    role="button"
+                    @click="
+                      deleteEvents(event.id);
+                      getEvents();
+                    "
+                    >Delete</a
+                  >
                 </td>
               </tr>
             </mdb-tbl-body>

@@ -90,7 +90,10 @@
         <Dashboard v-if="activeItem === 1"></Dashboard>
         <Users v-if="activeItem === 2"></Users>
         <CreateEvent :admin="admin" v-if="activeItem === 3"></CreateEvent>
-        <UpdateEvent v-if="activeItem === 4"></UpdateEvent>
+        <UpdateEvent
+          v-on:updateEvent="$emit('updateEvent', $event) && activeItem === 4"
+          v-if="activeItem === 4"
+        ></UpdateEvent>
       </div>
     </main>
   </div>
