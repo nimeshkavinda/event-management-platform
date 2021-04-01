@@ -24,7 +24,7 @@
         ><mdb-col md="1"
           ><router-link to="/allevents"
             ><p class="h5 blue-text font-weight-bold">
-              See All
+              <!-- See All -->
             </p></router-link
           ></mdb-col
         ></mdb-row

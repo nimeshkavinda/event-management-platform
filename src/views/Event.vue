@@ -40,7 +40,7 @@ export default {
       events: [],
     };
   },
-  created() {
+  mounted() {
     this.getEventData();
     this.getEvents();
   },

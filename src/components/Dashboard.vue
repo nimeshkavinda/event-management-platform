@@ -40,10 +40,6 @@
                 <td>{{ event.speaker }}</td>
                 <td>{{ event.organizer }}</td>
                 <td>
-                  <a role="button" v-on:click="$emit('updateEvent', event)"
-                    >Update</a
-                  >
-                  |
                   <a
                     role="button"
                     @click="

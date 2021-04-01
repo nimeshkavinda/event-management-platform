@@ -23,7 +23,7 @@
 
 <script>
 import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
-// import axios from "axios";
+import axios from "axios";
 export default {
   name: "ForumPage",
   components: {
@@ -37,24 +37,37 @@ export default {
     };
   },
   mounted() {
-    fetch("https://forum.fossnsbm.org/categories", {
+    // fetch("https://forum.fossnsbm.org/categories.json", {
+    //   method: "GET",
+    //   headers: {
+    //     Accept: "application/json",
+    //   },
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => (this.categories = data.category_list.categories))
+    //   .catch((err) => console.log(err.message));
+
+    axios({
       method: "GET",
-      headers: {
-        Accept: "application/json",
-        // Host: "https://forum.fossnsbm.org",
-        // Origin: "http://localhost:8080/forum",
-        // "Access-Control-Allow-Origin": "*",
-        // mode: "no-cors",
-      },
+      url: "https://forum.fossnsbm.org/categories.json",
+      timeout: 1800000, // Let's say you want to wait at least 180 seconds
     })
-      .then((res) => res.json())
-      .then((data) => (this.categories = data.category_list.categories))
-      // .then(()=>(console.log(this.categories)))
-      .catch((err) => console.log(err.message));
-    // axios.get("https://forum.fossnsbm.org/categories.json").then((response) => {
-    //   (this.categories = response.data).catch((err) => console.log(err));
-    // });
-    // console.log(this.categories);
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
+    this.fetchCategories();
+    console.log(this.categories);
+  },
+  methods: {
+    async fetchCategories() {
+      const res = await fetch("https://forum.fossnsbm.org/categories.json");
+      const data = await res.json();
+      this.categories = data;
+    },
   },
 };
 </script>
